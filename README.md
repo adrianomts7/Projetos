@@ -54,7 +54,7 @@ Consolidar fundamentos de estruturação de layout e responsividade sem uso de f
 
 ---
 
-### 2. 📸 [Instagram Login Clone](./instagram-tela-login/)
+### 2. 📸 [Instagram Login Clone](./instagram-tela-inicial/)
 
 **Descrição**
 Reprodução da tela de login do Instagram com validações de formulário e interações dinâmicas.
