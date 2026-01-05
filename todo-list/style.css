@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Inter', sans-serif;
+}
+
+:root {
+  --branco: #fff;
+  --azul: #1c7ed6;  
+  --verde: #0ca678;
+  --cinza: #ced4da;
+  --cinza-forte: #212529;
+  --amarelo: #f59f00;
+  --vermelho: #e03131;
+  --preto: #000;
+}
+
+.sombra {
+  background-color: var(--preto);
+  opacity: 0.8;
+  z-index: 999;
+  inset: 0;
+  display: none;
+
+  position: absolute;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85rem;
+  margin: 4rem auto;
+
+  position: relative;
+}
+
+.titulo__section {
+  font-size: 3.6rem;
+  color: var(--azul);
+  font-weight: bolder;
+}
+
+.titulo__container {
+  font-size: 2.6rem;
+  color: var(--verde);
+  margin-bottom: 2.2rem;
+}
+
+.lista__nav {
+  display: flex;
+  gap: 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.link__nav{
+  display: block;
+  color: var(--azul);
+  text-decoration: none;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+.link__nav:hover {
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+.container__tabela {
+  width: 85rem;
+  margin: 4rem auto;
+}
+
+.header__tabela {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.area__select-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.label__select-filtro {
+  font-size: 1.4rem;
+  color: var(--cinza-forte);
+}
+
+.select__tabela-filtro {
+  border: none;
+  outline: none;
+  padding: 1rem 0;
+  border: 2px solid var(--cinza);
+  transition: outline ease-in 0.3s;
+}
+
+.select__tabela-filtro:hover {
+  outline: 2px solid var(--cinza-forte);
+}
+
+.tabela__tarefa {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.4rem;
+  border-spacing: 1rem;
+}
+
+.tarefa__salva {
+  margin-bottom: 10rem;
+}
+
+.titulo__tarefas {
+  font-size: 1.5rem;
+  color: var(--azul);
+}
+
+.btn__tarefas, .btn__confirmacao {
+  width: 100%;
+  padding: 0.6rem 2.6rem;
+  font-weight: 600;
+  color: var(--branco);
+  border: none;
+  outline: none;
+  border-radius: 100vw;
+
+  transition: all 0.3s ease-in;
+}
+
+.editar__tarefa {
+  background-color: var(--amarelo);
+}
+
+.apagar__tarefa, .btn__confirmacao-nao {
+  background-color: var(--vermelho);
+}
+
+.detalhes__tarefa {
+  background-color: var(--azul);
+}
+
+.editar__tarefa:hover {
+  background-color: var(--branco);
+  color: var(--amarelo);
+  outline: 2px solid var(--amarelo) ;
+}
+
+.apagar__tarefa:hover, .btn__confirmacao-nao:hover {
+  background-color: var(--branco);
+  color: var(--vermelho);
+  outline: 2px solid  var(--vermelho) ;
+}
+
+.detalhes__tarefa:hover {
+  background-color: #fff;
+  color: var(--azul);
+  outline: 2px solid var(--azul);
+}
+
+.container__form, .container__tarefa, .container__confirmacao {
+  background-color: var(--branco);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  
+  width: 50rem;
+  margin: 0 auto;
+  padding: 6rem;
+  border-radius: 9px;
+
+  display: none;
+}
+
+.mensagem {
+  text-align: center;
+  margin-bottom: 2.8rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--cinza-forte);
+}
+
+.form__cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.area__input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  font-size: 1.6rem;
+}
+
+.area__input label {
+  color: var(--azul);
+  font-weight: 600;
+}
+
+.area__input input, .area__input select {
+  font-size: 1.5rem;
+  border-radius: 7px;
+  border: 1px solid var(--cinza);
+  outline: none;
+  font-weight: 500;
+}
+
+.area__input input {
+  padding: 0.8rem 0 0.8rem 0.7rem;
+}
+
+.area__input select {
+  padding: 1rem;
+}
+
+.btn__cadastrar-tarefa, .btn__editar-tarefa {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 100vw;
+  border: none;
+  font-weight: 700;
+  color: var(--branco);
+  transition: all 0.3s ease-in;
+}
+
+.btn__cadastrar-tarefa {
+  background-color: var(--verde);
+}
+
+.btn__cadastrar-tarefa:hover, .btn__confirmacao-sim:hover {
+  color: var(--verde);
+  background-color: var(--branco);
+  outline: 2px solid var(--verde);
+}
+
+.icon__fechar {
+  position: absolute;
+  top: -3%;
+  right: -3%;
+  z-index: 10000;
+
+  width: 1.6rem;
+  height: 1.5rem;
+  color: var(--branco);
+  background-color: var(--vermelho);
+  padding: 1rem;
+  border-radius: 100vw;
+  cursor: pointer;
+}
+
+.container__tarefa {
+  flex-direction: column;
+  gap: 1.5rem; 
+
+}
+
+.titulo__detalhes-tarefa {
+  margin-bottom: 1.2rem;
+}
+
+.area__tarefa {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+}
+
+.tarefa__titulo {
+  font-size: 1.6rem;
+  color: var(--azul);
+  font-weight: 600;
+}
+
+.tarefa__servico {
+  color: var(--cinza-forte);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.tarefa__descricao-servico {
+  text-align: justify;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.botoes__tarefa-descricao {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.btn__tarefa-detalhes {
+  padding: 1.2rem;
+}
+
+.titulo__confirmacao-apagar-tarefa {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--cinza-forte);
+  text-align: center;
+}
+
+.subtitulo__confirmacao-apagar-tarefa {
+  font-size: 1.5rem;
+  color: var(--vermelho);
+  font-weight: 500;
+  margin-bottom: 3.6rem;
+  text-align: center;
+}
+
+.botoes__confirmacao-apagar-tarefa {
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+}
+
+.btn__confirmacao {
+  width: 100%;
+  padding: 0.8rem;
+  outline: none;
+}
+
+.btn__confirmacao-sim {
+  background-color: var(--verde);
+}

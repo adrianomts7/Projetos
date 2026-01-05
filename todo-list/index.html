@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To do List</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script defer src="script.js" type="module" ></script>
+
+  <script type="module" defer src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule defer src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+  <div class="sombra"></div>
+
+  <header class="header">
+    <h1 class="titulo__section">To do List</h1>
+
+    <nav class="nav__header">
+      <ul class="lista__nav">
+        <li>
+          <a class="link__nav link__cadastrar-tarefa">Cadastrar</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="container__tabela">
+    <header class="header__tabela">
+      <h2 class="titulo__container">Tarefas Cadastradas</h2>
+
+      <div class="area__select-header">
+        <label class="label__select-filtro" for="select__tabela">Filtrar por:</label>
+
+        <select class="select__tabela-filtro" id="select__tabela">
+          <option value="todos">Todos</option>
+          <option value="pendente">Pendente</option>
+          <option value="concluido">Concluido</option>
+        </select>
+      </div>
+
+    </header>
+    
+    <table class="tabela__tarefa">
+      <thead>
+        <tr>
+          <th class="titulo__tarefas">Nome</th>
+          <th class="titulo__tarefas">Status</th>
+          <th class="titulo__tarefas">Categoria</th>
+          <th class="titulo__tarefas">Data de criação</th>
+        </tr>
+      </thead>
+      <tbody class="linha__tabela">
+       
+      </tbody>
+    </table>
+  </section>
+
+  <section class="container__form">
+    <h2 class="titulo__container titulo__container-registro">Registre a sua nova Tarefa</h2>
+
+    <p class="mensagem">Cadastre suas tarefas diárias</p>
+
+    <form method="#" class="form__cadastro">
+
+      <div class="area__input">
+        <label for="nome__tarefa">Nome da Tarefa:</label>
+        <input type="text" id="nome__tarefa" class="input input__nome-tarefa">
+      </div>
+
+      <div class="area__input">
+        <label for="descricao__tarefa">Descrição</label>
+        <input type="text" id="descricao__tarefa" class="input input__descricao-tarefa">
+      </div>
+
+      <div class="area__input">
+        <label for="status__tarefa">Status:</label>
+        <select class="select__status-tarefa" id="status__tarefa">
+          <option value="naoIniciado">Não iniciado</option>
+          <option value="emAndamento">Em andamento</option>
+          <option value="concluido">Concluido</option>
+        </select>
+      </div>
+
+      <div class="area__input">
+        <label for="categoria__tarefa">Categoria:</label>
+        <select class="select__categoria-tarefa" id="categoria__tarefa">
+          <option value="pessoal">Pessoal</option>
+          <option value="estudos">Estudos</option>
+          <option value="profissional">Trabalho</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn__cadastrar-tarefa">Cadastrar Tarefa</button>
+
+    </form>
+    <ion-icon name="close-outline" class="icon__fechar"></ion-icon>
+
+  </section>
+
+  <section class="container__tarefa">
+    <h2 class="titulo__container titulo__detalhes-tarefa">Detalhes da sua tarefa</h2>
+
+    <ion-icon name="close-outline" class="icon__fechar"></ion-icon>
+  </section>
+
+  <section class="container__confirmacao">
+    <h2 class="titulo__confirmacao-apagar-tarefa">Você deseja realmente apagar a tarefa?</h2>
+    <p class="subtitulo__confirmacao-apagar-tarefa">Essa ação não pode ser desfeita</p>
+
+    <div class="botoes__confirmacao-apagar-tarefa">
+      <button class="btn__confirmacao btn__confirmacao-sim">Sim</button>
+      <button class="btn__confirmacao btn__confirmacao-nao">Não</button>
+    </div>
+
+  </section>
+
+</body>
+</html>

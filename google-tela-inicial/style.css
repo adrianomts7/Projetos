@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* 10px */
+  font-size: 62.5%;
+}
+
+
+.header {
+  margin-top: 1.8rem;
+  font-size: 1.6rem;
+}
+
+.list-nav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1.4rem;
+  margin-right: 2.2rem;
+}
+
+.li-item {
+  list-style: none;
+}
+
+.link, .link:visited {
+  color: #444;
+  letter-spacing: -0.4px;
+  text-decoration: none;
+}
+
+.link:hover, .link:active {
+  text-decoration: underline;
+}
+
+.icon-nav {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+
+.logo {
+  margin-top: 9rem;
+  display: flex;
+  justify-content: center;
+}
+
+.text-area {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.campo-busca {
+  width: 76rem;
+  height: 5rem;
+  border-radius: 50vw;
+  padding-left: 5rem;
+  border: none;
+  outline: none;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 1.8rem;
+}
+
+.busca-area {
+  position: absolute;
+  top: 30%;
+  left: 26.5%;
+}
+
+.busca {
+  height: 1.8rem;
+  width: 1.8rem;
+  color: #777;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.imagens-input {
+  height: 2.5rem;
+  width: 2.5rem;
+  cursor: pointer;
+}
+
+.butoes-area {
+  display: flex;
+  gap: 1.2rem;
+
+  position: absolute;
+  top: 25%;
+  right: 26.5%;
+}
+
+.campo-busca::placeholder {
+  font-size: 1.8rem;
+}

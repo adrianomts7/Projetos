@@ -1,0 +1,107 @@
+@media (max-width: 88em) {
+  .campo-busca {
+    width: 73rem;
+  }
+
+  .busca-area {
+    top: 30%;
+    left: 25.5%;
+  }
+
+  .butoes-area {
+    top: 25%;
+    right: 25.8%;
+  }
+
+}
+
+@media (max-width: 64em) {
+  .campo-busca {
+    width: 70rem;
+  }
+
+  .busca-area {
+    top: 30%;
+    left: 17.5%;
+  }
+
+  .butoes-area {
+    top: 25%;
+    right: 17.5%;
+  }
+
+}
+
+@media (max-width: 48em) {
+  .campo-busca {
+    width: 55rem;
+  }
+
+  .busca-area {
+    top: 30%;
+    left: 16.5%;
+  }
+
+  .butoes-area {
+    top: 25%;
+    right: 16.5%;
+  }
+
+}
+
+@media (max-width: 27em) {
+  .campo-busca {
+    width: 35rem;
+  }
+
+  .campo-busca::placeholder {
+    font-size: 1.2rem;
+  }
+
+  .busca-area {
+    top: 33%;
+    left: 13.2%;
+  }
+
+  .butoes-area {
+    top: 32%;
+    right: 14.2%;
+  }
+
+  .imagens-input {
+    height: 2rem;
+    width: 2rem;
+  }
+
+}
+
+@media (max-width: 20em) {
+  .logo-google {
+    max-width: 20rem;
+  }
+  
+  .campo-busca {
+    width: 27rem;
+    padding-left: 3.8rem;
+  }
+
+  .campo-busca::placeholder {
+    font-size: 1rem;
+  }
+
+  .busca-area {
+    top: 33%;
+    left: 11.5%;
+  }
+
+  .butoes-area {
+    top: 32%;
+    right: 10.2%;
+  }
+
+  .imagens-input {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+}

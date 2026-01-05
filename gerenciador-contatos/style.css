@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --branco: #fff;
+
+  --cinza-escuro: #212529;
+  --cinza-claro: #e7eaed;
+
+  --vermelho: #e03131;
+
+  --verde: #2f9e44;
+
+  --azul: #1c7ed6;
+
+  --preto: #000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.sombra {
+  background-color: var(--preto);
+  position: absolute;
+  z-index: 998;
+  inset: 0;
+  opacity: 0.7;
+
+  display: none;
+}
+
+.centralizar__elementos-area {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.column__direction {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 80rem;
+  margin: 4rem auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.titulo__header {
+  font-size: 2.8rem;
+}
+
+.lista__nav-header {
+  list-style: none;
+  font-size: 2rem;
+}
+
+.btn__adicionar-contato  {
+  background-color: var(--verde);
+  color: var(--branco);
+  padding: 1rem;
+  border-radius: 9px;
+
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.btn__adicionar-contato:hover, .btn__cadastrar-contato:hover, .apagar__contato:hover {
+  background-color: var(--branco);
+  color: var(--verde);
+  outline: 5px solid var(--verde);
+}
+
+.container {
+  width: 85rem;
+  margin: 5rem auto;  
+}
+
+.titulo__section {
+  font-size: 2rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 2rem;
+}
+
+.lista__contatos {
+  list-style: none;
+  width: 80%;
+  margin-left: 3rem;
+
+  gap: 1.6rem;
+}
+
+.contato {
+  padding: 2.6rem;
+  border-radius: 1.6rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+}
+
+.nome__contato {
+  font-weight: bolder;
+  font-size: 1.6rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 2rem;
+}
+
+.area__info-contato {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.8rem;
+  font-weight: 500;
+}
+
+.area__dados {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.area__butoes {
+  display: flex;
+  gap: 1.3rem;
+  width: 40%;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 1rem 3rem;
+  border-radius: 100vw;
+  font-weight: 600;
+  transition: all 0.5s ease-in;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--branco);
+  cursor: pointer;
+}
+
+.btn__apagar-contato, .nao__apagar-contato {
+  background-color: var(--vermelho);
+}
+
+.btn__apagar-contato:hover, .nao__apagar-contato:hover {
+  background-color: var(--branco);
+  color: var(--vermelho);
+  outline: 3px solid var(--vermelho);
+}
+
+.btn__editar-contato {
+  background-color: var(--azul);
+}
+
+.btn__editar-contato:hover {
+  background-color: var(--branco);
+  color: var(--azul);
+  outline: 3px solid var(--azul);
+}
+
+.icone {
+  font-size: 1.6rem;
+}
+
+.container__form {
+  width: 30%;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: var(--cinza-claro);
+  padding: 3rem;
+  border-radius: 10px;
+
+  display: none;
+}
+
+.area__fechar-section {
+  position: absolute;
+  top: -3%;
+  right: -3%;
+}
+
+.icone__fechar {
+  font-size: 2.4rem;
+  background-color: var(--vermelho);
+  padding: 1rem;
+  border-radius: 100vw;
+  color: var(--branco);
+  cursor: pointer;
+}
+
+.titulo__form {
+  font-size: 2.2rem;
+  color: var(--verde);
+}
+
+.mensagem {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 3rem;
+  font-weight: 599;
+}
+
+.form__cadastro {
+  width: 95%;
+  font-size: 1.5rem;
+}
+
+.area__form-input {
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.form__cadastro label {
+  font-weight: 500;
+  color: var(--cinza-escuro);
+}
+
+.form__cadastro input {
+  border: none;
+  outline: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin-bottom: 1.6rem;
+}
+
+.form__cadastro input:focus {
+  outline: 4px solid var(--verde);
+}
+
+.form__cadastro button {
+  display: inline-block;
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  outline: none;
+  border-radius: 100vw;
+  color: var(--branco);
+  font-weight: 700;
+}
+
+.btn__cadastrar-contato, .apagar__contato {
+  background-color: var(--verde);
+  transition: all 0.5s ease-in-out;
+}
+
+.container__confirmacao-apagar-contato {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--cinza-claro);
+  padding: 7rem;
+  z-index: 1001;
+
+  display: none;
+}
+
+.titulo__confirmacao {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--verde);
+  margin-bottom: 2rem;
+}
+
+.descricao__confirmacao {
+  font-size: 1.6em;
+  color: var(--vermelho);
+  font-weight: 500;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.apagar__contato, .nao__apagar-contato {
+  padding: 0.9rem 9rem;
+}
+
+.header__section {
+  width: 85%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icone__ordenacao {
+  font-size: 2.3rem;
+}

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  background-color: black;
+  font-family: "Rubik", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.3rem 6rem;
+  margin-bottom: 2rem;
+}
+
+.nav-1 {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.img-logo {
+  padding-top: 0.8rem;
+  max-width: 10rem;
+}
+
+.lista-main {
+  display: flex;
+  gap: 2rem;
+}
+
+.item-lista {
+  list-style: none;
+}
+
+.link-nav:link,
+.link-nav:visited {
+  color: #dee2e6;
+  text-decoration: none;
+  font-size: 1.6rem;
+  letter-spacing: -0.3px;
+  font-weight: 400;
+  transition: all 0.3s ease-in;
+}
+
+.link-nav:hover, .link-nav:active {
+  color: #adb5bd;
+  text-decoration: underline;
+}
+
+.nav-2 {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.img-perfil {
+  max-width: 3.5rem;
+}
+
+.icon-perfil {
+  display: inline-block;
+  height: 1.4rem;
+  width: 1.4rem;
+  color: #dee2e6;
+}
+
+.icon-header {
+  color: #dee2e6;
+  display: block;
+  height: 2.6rem;
+  width: 2.6rem;
+}
+
+.carrosel {
+  height: 25vh;
+  margin-bottom: 3rem;
+}
+
+.titulo-categoria {
+  color: #dee2e6;
+  font-size: 2.2rem;
+  margin-left: 6rem;
+  margin-bottom: 1.2rem;
+}
+
+.filmes {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1.4rem;
+  padding-left: 6rem;
+}
+
+.filme {
+  max-width: 22rem;
+  transition: all 0.3s ease-in;
+}
+
+.filme:hover {
+  outline: 3px solid #e03131;
+  transform: scale(1.05);
+}

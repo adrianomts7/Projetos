@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Contatos</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script defer src="script.js"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</head>
+
+<body>
+  <main>
+
+    <div class="sombra"></div>
+
+
+    <header class="header">
+      <h1 class="titulo__header">Gerenciador de Contatos</h1>
+
+      <nav class="nav__header">
+        <ul class="lista__nav-header">
+
+          <li>
+            <a href="#" class="btn__nav btn__adicionar-contato centralizar__elementos-area"><ion-icon
+                name="add-outline"></ion-icon> Adicionar Contato</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="container container__contatos column__direction">
+      <header class="header__section">
+        
+        <h2 class="titulo__section">Contatos Salvos</h2>
+
+        <ion-icon class="icone icone__ordenacao decrescente" name="arrow-down-outline"></ion-icon>
+      </header>
+
+      <ul class="lista__contatos ">
+
+        <li class="contato">
+
+          <p class="nome__contato">Adriano Mateus</p>
+
+          <div class="area__info-contato">
+            <div class="area__dados">
+
+              <div class="centralizar__elementos-area">
+                <ion-icon name="call-outline"></ion-icon>
+                <p class="telefone__contato">(71) 9 82956110</p>
+              </div>
+
+              <div class="centralizar__elementos-area">
+                <ion-icon name="mail-outline"></ion-icon>
+                <p class="email__contato">adriano@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="area__butoes">
+              <button class="btn btn__editar-contato">
+                <ion-icon name="pencil-outline" class="icone icone__editar-contato"></ion-icon>
+                Editar
+              </button>
+
+              <button class="btn btn__apagar-contato">
+                <ion-icon name="trash-outline" class="icone icone__apagar-contato"></ion-icon>
+                Apagar
+              </button>
+
+            </div>
+          </div>
+
+        </li>
+      </ul>
+    </section>
+
+    <section class="container container__form">
+      <div class="area__fechar-section">
+        <ion-icon name="close-outline" class="icone icone__fechar"></ion-icon>
+      </div>
+
+      <h2 class="titulo__section titulo__form">Cadastro de Contato</h2>
+
+      <p class="mensagem">Complete os campos abaixo</p>
+
+
+      <form class="form__cadastro">
+
+        <div class="column__direction area__form-input">
+          <label for="nome">Nome:</label>
+
+          <input type="text" class="input__nome" id="nome" name="nome" required />
+        </div>
+
+        <div class="column__direction area__form-input">
+          <label for="sobrenome">Sobrenome:</label>
+
+          <input type="text" class="input__sobrenome" id="sobrenome" name="sobrenome" required />
+        </div>
+
+        <div class="column__direction area__form-input">
+          <label for="telefone">Telefone:</label>
+
+          <input type="text" class="input__telefone" id="telefone" name="telefone" required />
+        </div>
+
+        <div class="column__direction area__form-input">
+          <label for="email">Email:</label>
+
+          <input type="email" class="input__email" id="email" name="email" required />
+        </div>
+
+        <button type="submit" class="btn__cadastrar-contato btn__form">Cadastrar Contato</button>
+
+      </form>
+
+    </section>
+
+    <section class="container__confirmacao-apagar-contato">
+      <h2 class="titulo__confirmacao">Deseja realmente apagar esse contato?</h2>
+      <p class="descricao__confirmacao">Essa ação não pode ser desfeita</p>
+
+      <div class="area__butoes">
+        <button class="btn apagar__contato">Sim</button>
+        <button class="btn nao__apagar-contato">Não</button>
+      </div>
+
+    </section>
+
+  </main>
+</body>
+
+</html>

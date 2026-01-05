@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #000;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 9.8rem;
+  margin: 5rem 0;
+}
+
+.img {
+  height: 45rem;
+}
+
+.login-area {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+.img-logo {
+  max-width: 18rem;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.messages {
+  font-size: 1.6rem;
+  color: #fff;
+  text-align: center;
+  padding: 1.6rem;
+}
+
+.input {
+  width: 30rem;
+  padding: 0.8em 1.2em;
+  background-color: rgb(18, 18, 18);
+  color: rgb(255, 255, 255);
+  border: 1px solid #495057;
+  border-radius: 4px;
+
+}
+
+.input::placeholder {
+  color: #868e96;
+}
+
+.password {
+  position: relative;
+}
+
+.mostrar--senha {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: #fff;
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  width: 30rem;
+  padding: 0.7rem 0;
+  background-color: rgba(74, 93, 249);
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  border-radius: 9px;
+  opacity: 0.6;
+  margin: 0.5rem 0;
+  border: none;
+}
+
+.separador {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+  width: 30rem;
+}
+
+.linha {
+  flex: 1;
+  height: 0.1rem;
+  background-color: rgb(55, 54, 54);
+}
+
+.ou {
+  margin: 0 1.5rem;
+  color: rgb(142, 142, 142);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.facebook {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.icon-facebook {
+  color: rgb(0, 149, 246);
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.link-facebook:link,
+.link:link,
+.cadastre {
+  font-size: 1.5rem;
+}
+
+.link-facebook:link, 
+.link-facebook:visited {
+  color: rgb(0, 149, 246);
+  text-decoration: none;
+}
+
+.link:link,
+.link:visited {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin-bottom: 6.4rem;
+}
+
+.link:hover,
+.link:active {
+  text-decoration: underline;
+}
+
+.cadastre {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.cadastro {
+  color: rgb(112, 141, 255);
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.2rem;
+  padding: 3rem 0;
+}
+
+.links-footer {
+  display: flex;
+  gap: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  color: rgb(142, 142, 142);
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  text-decoration: underline;
+}
+
+.footer-complemento {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.icon-traducao {
+  height: 1rem;
+  width: 1rem;
+  color: rgb(142, 142, 142);
+}

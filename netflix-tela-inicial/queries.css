@@ -1,0 +1,36 @@
+@media (max-width: 64em) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.3rem 3.5rem;
+  }
+
+  .nav-1 {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  .link-nav:link,
+  .link-nav:visited {
+    font-size: 1.4rem;
+  }
+
+  .carrosel {
+    margin-bottom: 5rem;
+  }
+
+  .titulo-categoria {
+    color: #dee2e6;
+    font-size: 1.8rem;
+    margin-left: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .filmes {
+    display: flex;
+    gap: 0.8rem;
+    padding-left: 3.5rem;
+  }
+
+}

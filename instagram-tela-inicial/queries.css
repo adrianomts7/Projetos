@@ -1,0 +1,57 @@
+/* Tablet Grande 1024px */
+@media (max-width: 64em) {
+  .container {
+    justify-content: start;
+    gap: 4rem;
+  }
+
+  .links-footer {
+    gap: 1.3rem;
+  }
+
+  .footer-link:link,
+  .footer-link:visited {
+    font-size: 1.3rem;
+  }
+
+  .footer-complemento {
+    margin-bottom: 1.2rem;
+  }
+
+}
+
+/* Tablet Pequeno 848px */
+@media (max-width: 53em) {
+  .container {
+    justify-content: center;
+  }
+
+  .img-login {
+    display: none;
+  }
+
+  .links-footer {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+}
+
+@media (max-width: 27em) {
+  .img-logo {
+    max-width: 20rem;
+  }
+
+  .input {
+    width: 25rem;
+  }
+
+  .button {
+    width: 25rem;
+  }
+
+  .footer {
+    padding: 0 2rem;
+  }
+
+}

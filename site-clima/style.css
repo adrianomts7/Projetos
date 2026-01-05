@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --preto: #000;
+  --preto-sombra: rgba(0, 0, 0, 0.5);
+  --branco-sombra: rgba(255, 255, 255, 0.3);
+  --branco: #fff;
+  --azul: #3B82F6;
+  --azul-claro: #E5F0FF;
+  --vermelho: #c92a2a;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url('./img/Ensolarado.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+.fundo__branco {
+  background-color: var(--branco-sombra);
+  color: var(--preto);
+}
+
+.fundo__preto {
+  background-color: var(--preto-sombra);
+  color: var(--branco);
+}
+
+.container__dados-clima {
+  width: 70rem;
+
+  margin: 10rem auto;
+  padding: 4rem;
+  font-size: 1.4rem;
+}
+
+.area__pesquisa {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.form__pesquisa {
+  display: flex;
+  gap: 1.3rem;
+}
+
+.area__pesquisa-input {
+  position: relative;
+}
+
+.icone__local {
+  position: absolute;
+  top: 50%;
+  left: 3.5%;
+  transform: translate(-50%, -50%);
+  color: var(--preto);
+}
+
+.icone__lupa {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  color: var(--preto);
+}
+
+.input__buscar-cidade {
+  width: 40rem;
+  padding: 0.7rem 0.6rem 0.7rem 2.8rem;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 100vw;
+}
+
+
+.nome__cidade {
+  font-size: 2.2rem;
+  margin-bottom: 1.7rem;
+  text-align: center;
+}
+
+.dados__principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.img__condicao-tempo {
+  width: 9rem;
+  display: block;
+  justify-content: center;
+}
+
+.dados__tempo {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* .condicao__tempo {
+  color: #f59f00;
+} */
+
+.temperatura {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.area__dados-complementares {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.area__dados {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.titulo__area-dados {
+  font-size: 1.3rem;
+}
+
+.icone__agua {
+  color: var(--azul);
+}
+
+.icone__vento {
+  color: var(--azul-claro);
+}
+
+.icone__temp-min {
+  color: var(--azul);
+}
+
+.icone__temp-max {
+  color: var(--vermelho);
+}
+
+.mensagem {
+  text-align: center;
+  font-weight: 600;
+}
+
+.mensagem__inicial {
+  color: var(--azul);
+  font-size: 1.6rem;
+}
+
+.mensagem__erro {
+  color: var(--vermelho);
+  font-size: 2rem;
+}
