@@ -26,6 +26,8 @@ const containerConfirmacao = document.querySelector(
   ".container__confirmacao-apagar-contato"
 );
 const iconeOrdenacao = document.querySelector(".icone__ordenacao");
+const inputBuscar = document.querySelector('.buscar');
+const mensagemErroContainerContatos = document.querySelector('.mensagem__erro');
 
 class App {
   #contatos = [];
@@ -46,6 +48,8 @@ class App {
       this._eventosConfirmacao.bind(this)
     );
     headerSection.addEventListener("click", this._eventosHeader.bind(this));
+
+    inputBuscar.addEventListener('input', this._filtrarContatos.bind(this));
   }
 
   _salvarContatosLocalStorage() {
@@ -54,13 +58,16 @@ class App {
 
   _contatosSalvosLocalStorage() {
     this.#contatos = JSON.parse(localStorage.getItem("contatos")) || [];
-    this._limpandoListaContatos();
 
-    this.#contatos.forEach((contato) => this._adicionandoContatoLista(contato));
+    this._renderizarContatos();
+  }
+
+  _ficarVisivelOuEsconderElemento(elemento, display) {
+    elemento.style.display = display;
   }
 
   _abrirSombra() {
-    sombra.style.display = "block";
+    this._ficarVisivelOuEsconderElemento(sombra, 'block');
     document.body.style.overflow = "hidden";
 
     window.scrollTo({
@@ -71,27 +78,27 @@ class App {
   }
 
   _fecharSombra() {
-    sombra.style.display = "none";
+    this._ficarVisivelOuEsconderElemento(sombra, 'none');
     document.body.style.overflow = "scroll";
   }
 
   _abrirModalForm() {
-    containerForm.style.display = "block";
+    this._ficarVisivelOuEsconderElemento(containerForm, 'block');
     this._abrirSombra();
   }
 
   _fecharModalForm() {
-    containerForm.style.display = "none";
+    this._ficarVisivelOuEsconderElemento(containerForm, 'none');
     this._fecharSombra();
   }
 
   _abrirModalConfirmacao() {
-    containerConfirmacao.style.display = "block";
+    this._ficarVisivelOuEsconderElemento(containerConfirmacao, 'block');
     this._abrirSombra();
   }
 
   _fecharModalConfirmacao() {
-    containerConfirmacao.style.display = "none";
+    this._ficarVisivelOuEsconderElemento(containerConfirmacao, 'none');
     this._fecharSombra();
   }
 
@@ -146,9 +153,17 @@ class App {
     listaContatos.querySelectorAll(".contato").forEach((el) => el.remove());
   }
 
+  _mudarDadosTitulo(titulo, mensagem) {
+    titulo.textContent = mensagem;
+  }
+
+  _mudarCorElemento(elemento, cor) {
+    elemento.style.color = cor;
+  }
+
   _mudarFormAtualizar() {
-    tituloForm.textContent = "Atualizar Contato";
-    tituloForm.style.color = "#1c7ed6";
+    this._mudarDadosTitulo(tituloForm, 'Atualizar Contato');
+    this._mudarCorElemento(tituloForm, "#1c7ed6")
 
     btnForm.classList.remove("btn__cadastrar-contato");
     btnForm.classList.add("btn__editar-contato");
@@ -157,8 +172,8 @@ class App {
 
   _mudarFormCadastrar() {
     this._limpandoInputs();
-    tituloForm.textContent = "Cadastro de Contato";
-    tituloForm.style.color = "#2f9e44";
+    this._mudarDadosTitulo(tituloForm, "Cadastro de Contato");
+    this._mudarCorElemento(tituloForm, "#2f9e44");
 
     btnForm.classList.remove("btn__editar-contato");
     btnForm.classList.add("btn__cadastrar-contato");
@@ -237,7 +252,7 @@ class App {
       const contato = new Contato(nome, sobrenome, telefone, email);
 
       this.#contatos.push(contato);
-      this._adicionandoContatoLista(contato);
+      this._renderizarContatos()
       this._salvarContatosLocalStorage();
       mensagemFormUsuario("Contato salvo com sucesso!", "sucesso");
 
@@ -283,15 +298,15 @@ class App {
     if (e.target.closest(".icone__ordenacao")) {
       let lista;
 
-      const limparContainerMostrarNaTela = () => {
-        this._limpandoListaContatos();
-        lista.forEach((contato) => this._adicionandoContatoLista(contato));
+      const limparContainerMostrarNaTela = (listaContatos) => {
+        this._renderizarContatos(listaContatos);
       };
 
       if (e.target.classList.contains("decrescente")) {
         lista = this.#contatos
           .slice()
           .sort((a, b) => a.nome.localeCompare(b.nome));
+
         iconeOrdenacao.name = "arrow-down-outline";
         iconeOrdenacao.classList.remove("decrescente");
         iconeOrdenacao.classList.add("crescente");
@@ -303,6 +318,7 @@ class App {
         lista = this.#contatos
           .slice()
           .sort((a, b) => b.nome.localeCompare(a.nome));
+        
         iconeOrdenacao.name = "arrow-up-outline";
         iconeOrdenacao.classList.remove("crescente");
         iconeOrdenacao.classList.add("decrescente");
@@ -311,6 +327,34 @@ class App {
       }
     }
   }
+
+  _filtrarContatos() {
+    const valor = inputBuscar.value.toLowerCase().trim();
+
+    const contatosFiltrados = this.#contatos.slice().filter(contato =>  `${contato.nome} ${contato.sobrenome} ${contato.telefone} ${contato.email}`.toLowerCase().includes(valor));
+
+    this._renderizarContatos(contatosFiltrados);
+    
+    this._limpandoMensagemErroTelaSectionContato();
+
+    if (valor.length >= 1 && contatosFiltrados.length === 0) return this._mensagemErroSectionContato();
+
+  }
+
+  _renderizarContatos(contatos = this.#contatos) {
+    this._limpandoListaContatos();
+    contatos.forEach( contato => this._adicionandoContatoLista(contato) );
+  }
+
+  _mensagemErroSectionContato(mensagem = 'Contato não encontrado!') {
+    this._limpandoMensagemErroTelaSectionContato();
+    mensagemErroContainerContatos.textContent = mensagem;
+  }
+
+  _limpandoMensagemErroTelaSectionContato() {
+    mensagemErroContainerContatos.textContent = '';
+  }
+
 }
 
 const app = new App();

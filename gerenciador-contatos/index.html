@@ -39,45 +39,19 @@
         
         <h2 class="titulo__section">Contatos Salvos</h2>
 
-        <ion-icon class="icone icone__ordenacao decrescente" name="arrow-down-outline"></ion-icon>
+        <div class="area__eventos-header">
+          <input type="text" class="buscar" placeholder="digite o nome do contato">
+          <ion-icon class="icone icone__ordenacao decrescente" name="arrow-down-outline"></ion-icon>
+        </div>
       </header>
 
       <ul class="lista__contatos ">
 
-        <li class="contato">
-
-          <p class="nome__contato">Adriano Mateus</p>
-
-          <div class="area__info-contato">
-            <div class="area__dados">
-
-              <div class="centralizar__elementos-area">
-                <ion-icon name="call-outline"></ion-icon>
-                <p class="telefone__contato">(71) 9 82956110</p>
-              </div>
-
-              <div class="centralizar__elementos-area">
-                <ion-icon name="mail-outline"></ion-icon>
-                <p class="email__contato">adriano@gmail.com</p>
-              </div>
-            </div>
-
-            <div class="area__butoes">
-              <button class="btn btn__editar-contato">
-                <ion-icon name="pencil-outline" class="icone icone__editar-contato"></ion-icon>
-                Editar
-              </button>
-
-              <button class="btn btn__apagar-contato">
-                <ion-icon name="trash-outline" class="icone icone__apagar-contato"></ion-icon>
-                Apagar
-              </button>
-
-            </div>
-          </div>
-
-        </li>
       </ul>
+
+      <div class="mensagem__erro-area">
+        <p class="mensagem__erro"></p>
+      </div>
     </section>
 
     <section class="container container__form">
