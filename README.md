@@ -1,44 +1,48 @@
-# 💼 Portfólio de Projetos
+# 💼 Portfólio de Projetos 
 
-Repositório contendo projetos desenvolvidos com **HTML5, CSS3 e JavaScript puro**, com foco na consolidação de fundamentos, aplicação de boas práticas de desenvolvimento e construção de interfaces funcionais, responsivas e bem estruturadas.
+Repositório contendo projetos desenvolvidos com **HTML5, CSS3 e JavaScript puro (ES6+)**, com foco na consolidação de fundamentos, aplicação de **boas práticas de engenharia de software**, organização de código e construção de **interfaces funcionais, responsivas e escaláveis**.
 
-Este portfólio documenta minha evolução técnica como desenvolvedor por meio de projetos práticos que abrangem desde layouts estáticos até aplicações dinâmicas com integração de APIs externas.
+Este portfólio documenta minha **evolução técnica como desenvolvedor**, partindo de layouts estáticos até aplicações completas com **arquitetura organizada, Programação Orientada a Objetos, persistência de dados e integração com APIs REST**.
 
 ---
 
 ## 🧰 Tecnologias Utilizadas
 
-<div align="left">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/>
-</div>
+<div align="left"> 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40"/> 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" width="40" height="40"/> 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/> 
+</div> 
 
 <br>
 
 * **HTML5** — Estrutura semântica, acessível e organizada
-* **CSS3** — Layout responsivo, Flexbox, Grid e animações
-* **JavaScript (ES6+)** — Lógica de negócio, manipulação do DOM, POO e consumo de APIs
+* **CSS3** — Layout responsivo, Flexbox, Grid, animações e design adaptativo
+* **JavaScript (ES6+)** — Lógica de negócio, POO, manipulação do DOM, event delegation e consumo de APIs
+* **APIs REST** — Fetch API, async/await, tratamento de erros
+* **LocalStorage** — Persistência de dados no navegador
 
 ---
 
-## 🎯 Objetivos
+## 🎯 Objetivos do Portfólio
 
-* Consolidar fundamentos sólidos de **HTML5, CSS3 e JavaScript ES6+**
-* Desenvolver interfaces **responsivas, acessíveis e bem organizadas**
+* Consolidar fundamentos sólidos de **HTML, CSS e JavaScript moderno**
+* Desenvolver interfaces **responsivas, acessíveis e bem estruturadas**
 * Aplicar **Programação Orientada a Objetos** no front-end
-* Trabalhar com **APIs REST** e requisições assíncronas
-* Implementar **persistência de dados no navegador**
+* Trabalhar com **arquitetura organizada (MVC / separação de responsabilidades)**
+* Integrar e consumir **APIs REST** de forma eficiente
+* Implementar **persistência de dados** no navegador
 * Praticar **manipulação eficiente do DOM** e gerenciamento de eventos
+* Evoluir código procedural para soluções **escaláveis e manuteníveis**
 
 ---
 
 ## 📁 Projetos
 
-### 1. 🔍 [Google Search Clone](./google-tela-inicial/)
+### 1. 🔍 Google Search Clone
 
 **Descrição**
-Clone fiel da interface de busca do Google, recriando layout, tipografia e hierarquia visual com atenção aos detalhes e consistência visual.
+Clone fiel da interface de busca do Google, recriando layout, tipografia e hierarquia visual com atenção aos detalhes.
 
 **Tecnologias**
 HTML5 · CSS3
@@ -56,7 +60,7 @@ Consolidar fundamentos de estruturação de layout e responsividade sem uso de f
 
 ---
 
-### 2. 📸 [Instagram Login Clone](./instagram-tela-login/)
+### 2. 📸 Instagram Login Clone
 
 **Descrição**
 Reprodução da tela de login do Instagram com validações de formulário, interações dinâmicas e feedback visual ao usuário.
@@ -80,14 +84,14 @@ HTML5 · CSS3 · JavaScript
 * Funções de temporização (`setTimeout`)
 
 **Objetivo**
-Integrar estrutura, estilo e comportamento, aplicando validações e lógica de interface no front-end.
+Integrar estrutura, estilo e comportamento no front-end.
 
 ---
 
-### 3. 🎬 [Netflix Home Clone](./netflix-tela-inicial/)
+### 3. 🎬 Netflix Home Clone
 
 **Descrição**
-Recriação da página inicial da Netflix, incluindo navegação superior, organização de múltiplas seções e foco em hierarquia visual.
+Recriação da página inicial da Netflix com múltiplas seções, navegação superior e foco em hierarquia visual.
 
 **Tecnologias**
 HTML5 · CSS3
@@ -95,8 +99,8 @@ HTML5 · CSS3
 **Conceitos Aplicados**
 
 * CSS Grid para layouts complexos
-* Flexbox para componentes flexíveis
-* Efeitos de hover e transições CSS
+* Flexbox para componentes reutilizáveis
+* Efeitos de hover e transições
 * Organização visual de grandes volumes de conteúdo
 * Design em modo escuro (dark mode)
 
@@ -105,10 +109,10 @@ Desenvolver layouts complexos e trabalhar composição visual em interfaces rica
 
 ---
 
-### 4. 📇 [Gerenciador de Contatos](./gerenciador-contatos/)
+### 4. 📇 Gerenciador de Contatos
 
 **Descrição**
-Aplicação completa de gerenciamento de contatos com operações CRUD, validações de dados e persistência local.
+Aplicação completa de gerenciamento de contatos com operações CRUD, validações de dados, persistência local e arquitetura organizada.
 
 **Tecnologias**
 HTML5 · CSS3 · JavaScript (ES6+) · LocalStorage
@@ -116,8 +120,9 @@ HTML5 · CSS3 · JavaScript (ES6+) · LocalStorage
 **Funcionalidades**
 
 * Cadastro, edição e exclusão de contatos
-* Validação de telefone e e-mail com expressões regulares
+* Validação de telefone e e-mail com regex
 * Ordenação alfabética (crescente e decrescente)
+* Busca dinâmica de contatos
 * Modal de confirmação para exclusões
 * Persistência automática dos dados
 * Feedback visual nas operações
@@ -126,16 +131,17 @@ HTML5 · CSS3 · JavaScript (ES6+) · LocalStorage
 
 * Programação Orientada a Objetos (classes)
 * Encapsulamento com propriedades privadas (`#`)
-* Métodos com responsabilidades bem definidas
+* Arquitetura baseada em **MVC**
+* Separação clara entre View, Controller, Model e Repository
 * Event delegation para melhor performance
-* Validações robustas com regex
+* Código modular e escalável
 
 **Objetivo**
-Aplicar POO em JavaScript, estruturar código escalável e trabalhar persistência de dados no navegador.
+Aplicar POO em JavaScript, estruturar código escalável e praticar padrões de arquitetura no front-end.
 
 ---
 
-### 5. ☁️ [Site de Clima](./site-clima/)
+### 5. ☁️ Site de Clima
 
 **Descrição**
 Aplicação meteorológica que exibe condições climáticas em tempo real por meio da integração com múltiplas APIs externas.
@@ -151,7 +157,7 @@ HTML5 · CSS3 · JavaScript (ES6+) · Fetch API · Geolocation API
 
 **Funcionalidades**
 
-* Detecção automática de localização via GPS do navegador
+* Detecção automática de localização via GPS
 * Busca manual por cidade
 * Exibição de temperatura atual, máxima e mínima
 * Informações de vento, umidade e probabilidade de chuva
@@ -161,17 +167,17 @@ HTML5 · CSS3 · JavaScript (ES6+) · Fetch API · Geolocation API
 
 **Destaques Técnicos**
 
-* Uso de `async/await` para requisições assíncronas
+* Uso de `async/await`
 * Tratamento de erros com `try/catch`
 * Integração simultânea de múltiplas APIs REST
-* Atualização dinâmica da interface baseada em dados externos
+* Atualização dinâmica da interface
 
 **Objetivo**
-Dominar requisições assíncronas, integração com APIs externas e atualização dinâmica de UI.
+Dominar requisições assíncronas e integração com APIs externas.
 
 ---
 
-### 6. 📚 [To-Do List](./todo-list/)
+### 6. 📚 To-Do List
 
 **Descrição**
 Sistema de gerenciamento de tarefas com categorização, filtros, controle de status e persistência local.
@@ -184,7 +190,7 @@ HTML5 · CSS3 · JavaScript (ES6+) · LocalStorage
 * CRUD completo de tarefas
 * Sistema de categorias (Pessoal, Estudos, Trabalho)
 * Controle de status (Não Iniciado, Em Andamento, Concluído)
-* Filtros dinâmicos por status
+* Filtros dinâmicos
 * Modal de confirmação para exclusão
 * Edição de tarefas
 * Data de criação automática
@@ -194,12 +200,12 @@ HTML5 · CSS3 · JavaScript (ES6+) · LocalStorage
 
 * Classe `Tarefa` com construtor personalizado
 * Classe `App` para organização da aplicação
-* Gerenciamento de estado com array privado
+* Gerenciamento de estado com encapsulamento
 * Event delegation centralizada
 * Formatação de datas com `Intl.DateTimeFormat`
 
 **Objetivo**
-Construir uma aplicação completa com arquitetura organizada e gerenciamento de estado.
+Construir uma aplicação completa com arquitetura organizada e controle de estado.
 
 ---
 
@@ -209,7 +215,8 @@ Construir uma aplicação completa com arquitetura organizada e gerenciamento de
 * Transição de código procedural para Orientado a Objetos
 * Uso consistente de `async/await`
 * Validações robustas com regex
-* Integração fluente com APIs REST
+* Arquitetura MVC no front-end
+* Código modular e manutenível
 
 ---
 
@@ -217,7 +224,7 @@ Construir uma aplicação completa com arquitetura organizada e gerenciamento de
 
 * Planejamento e definição de requisitos
 * Implementação incremental por funcionalidade
-* Refatoração e otimização de código
+* Refatoração contínua
 * Testes em diferentes navegadores e resoluções
 * Organização e documentação do código
 
@@ -226,15 +233,15 @@ Construir uma aplicação completa com arquitetura organizada e gerenciamento de
 ## 📬 Contato
 
 **Adriano Mateus**
-Desenvolvedor
+Desenvolvedor 
 
-* LinkedIn: [https://www.linkedin.com/in/adrianomts7](https://www.linkedin.com/in/adrianomts7)
+LinkedIn: [https://www.linkedin.com/in/adrianomts7](https://www.linkedin.com/in/adrianomts7)
 
 ---
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
+Este projeto está sob a licença **MIT**. Consulte o arquivo `LICENSE` para mais informações.
 
 ---
 
