@@ -1,79 +1,83 @@
-'use strict';
+"use strict";
 
-import view from '../view/ContatoView.js';
-import * as model from '../model/ContatoModel.js';
-import repository from '../model/ContatoRepository.js';
+import view from "../view/ContatoView.js";
+import * as model from "../model/ContatoModel.js";
+import repository from "../model/ContatoRepository.js";
 
 let acaoForm;
 
-const abrirModalForm = function() {
+const abrirModalForm = function () {
   view.abrirModalForm();
-  acaoForm = 'cadastrar';
-  
+  acaoForm = "cadastrar";
+
   view.mudarDadosForm(acaoForm);
   view.acaoForm = acaoForm;
-}
+};
 
-const fecharModalForm = function() {
+const fecharModalForm = function () {
   view.fecharModalForm();
-}
+};
 
-const abrirModalApagarContato = function() {
+const abrirModalApagarContato = function () {
   view.abrirModalConfirmacaoApagarContato();
-}
+};
 
-const fecharModalApagarContato = function() {
+const fecharModalApagarContato = function () {
   view.fecharModalConfirmacaoApagarContato();
-}
+};
 
-const renderizarContatos = function() {
+const verificarContatoRenderizar = function (contatos = [], mensagem = 'Nenhum contato Cadastrado!') {
+  contatos.length < 1
+    ? view.mensagemContato(true, mensagem)
+    : view.mensagemContato();
+};
+
+const renderizarContatos = function () {
   const contatos = repository.contatosSalvosLocalStorage();
+
+  verificarContatoRenderizar(contatos);
+
   view.atualizarListaContatos(contatos);
-}
+};
 
+const cadastrarContato = function (dados) {
+  try {
+    const { nome, sobrenome, telefone, email } = dados;
 
-const cadastrarContato = function(dados) {
-  try{
-    
-    const {nome, sobrenome, telefone, email} = dados;
-    
     const contato = new model.Contato(nome, sobrenome, telefone, email);
-    
+
     repository.adicionarContato(contato);
     renderizarContatos();
-    
 
-    view.mensagemForm('Contato Cadastrado com sucesso!', 'sucesso');
+    view.mensagemForm("Contato Cadastrado com sucesso!", "sucesso");
 
-    view.fecharModalForm(true, 3000); 
-
-  } catch(err) {
-    view.mensagemForm(err.message)
+    view.fecharModalForm(true, 3000);
+  } catch (err) {
+    view.mensagemForm(err.message);
   }
-}
+};
 
-const apagarContato = function(idContato) {
+const apagarContato = function (idContato) {
   // Transformando o idContato em um número.
   const contato = repository.getContato(+idContato);
   const indiceContato = repository.indiceContato(contato);
   const contatoDeletado = repository.apagarContato(indiceContato);
 
-  if (contato === contatoDeletado) alert('Contato Deletado com Sucesso!')
-  
+  if (contato === contatoDeletado) alert("Contato Deletado com Sucesso!");
+
   repository.salvarContatosLocalStorage();
   renderizarContatos();
 
   view.fecharModalConfirmacaoApagarContato();
-}
+};
 
-
-const dadosContatoAtualizar = function(idContato) {
+const dadosContatoAtualizar = function (idContato) {
   // Transformando o idContato em um número.
   const contato = repository.getContato(+idContato);
   const indiceContato = repository.indiceContato(contato);
   view.abrirModalForm();
 
-  acaoForm = 'atualizar';
+  acaoForm = "atualizar";
 
   view.mudarDadosForm(acaoForm);
   view.acaoForm = acaoForm;
@@ -83,37 +87,37 @@ const dadosContatoAtualizar = function(idContato) {
   model.dadosContatoAtualizar.indiceContato = indiceContato;
 };
 
-const atualizandoContato = function(dadosAtualizados) {
-  const { dados, indiceContato } = model.dadosContatoAtualizar;
+const atualizandoContato = function (dadosAtualizados) {
+  const { indiceContato } = model.dadosContatoAtualizar;
   repository.editarContato(indiceContato, dadosAtualizados);
-  
+
   repository.salvarContatosLocalStorage();
   renderizarContatos();
 
-  view.mensagemForm('Contato Editado com Sucesso', 'sucesso');
+  view.mensagemForm("Contato Editado com Sucesso", "sucesso");
   view.fecharModalForm(true, 3000);
-}
+};
 
-const ordenacaoContatos = function(ordenacao) {
+const ordenacaoContatos = function (ordenacao) {
   const contatosDesordenados = repository.ordenarCrescente();
   const contatosNormal = repository.getListaContatosPadrao();
-  
-  const contatosLista = ordenacao === 'decrescente' ? contatosDesordenados : contatosNormal;
-  
+
+  const contatosLista =
+    ordenacao === "decrescente" ? contatosDesordenados : contatosNormal;
 
   view.atualizarListaContatos(contatosLista);
-}
+};
 
-const buscarContato = function(dadosContato) {
+const buscarContato = function (dadosContato) {
   const dadosBuscarContato = dadosContato.toLowerCase();
-  const contatosBuscado = repository.contatosPesquisar(dadosBuscarContato);
+  const contatoProcurado = repository.contatosPesquisar(dadosBuscarContato);
 
-  if (contatosBuscado.length <= 0) return alert('Nenhum contato cadastrado com esses dados');
+  Number(dadosBuscarContato.length) < 1 ? verificarContatoRenderizar() : verificarContatoRenderizar(contatoProcurado, 'Nenhum contato cadastrado com esses dados!');
 
-  view.atualizarListaContatos(contatosBuscado)
-}
+  view.atualizarListaContatos(contatoProcurado);
+};
 
-const init = function() {
+const init = function () {
   renderizarContatos();
 
   view.eventosNav(abrirModalForm);
@@ -123,6 +127,6 @@ const init = function() {
   view.eventosClickContainerForm(fecharModalForm);
   view.eventoForm(cadastrarContato, atualizandoContato);
   view.eventosInputBusca(buscarContato);
-}
+};
 
 init();

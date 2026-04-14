@@ -4,6 +4,8 @@ class ContatoView {
   #containerForm = document.querySelector(".container__form");
   #containerConfirmacao = document.querySelector(".container__confirmacao-apagar-contato");
   #containerContatos = document.querySelector('.container__contatos');
+  #mensagemContatoArea = document.querySelector('.mensagem__contato-area');
+  #mensagemContato = document.querySelector('.mensagem__contato');
   #sombra = document.querySelector(".sombra");
   #navHeader = document.querySelector(".nav__header");
   #headerSection = document.querySelector('.header__section');
@@ -20,6 +22,7 @@ class ContatoView {
   #iconeOrdenarLista = document.querySelector('.icone__ordenacao');
   #ordenacaoContato = 'normal';
   acaoForm;
+  
 
   eventosNav(handler) {
     this.#navHeader.addEventListener('click', (e) => {
@@ -106,6 +109,11 @@ class ContatoView {
         this.#mensagemForm.textContent = "Complete os campos abaixo";
         mudarCorMensagem("#212529");
       }, 5000);
+  }
+
+  mensagemContato(mostrar = false, mensagem = '') {
+    this.#mensagemContatoArea.style.display = mostrar ? 'block' : 'none';
+    this.#mensagemContato.textContent = mensagem;
   }
 
   colocarDadosInputForm(dados) {
