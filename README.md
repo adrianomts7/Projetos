@@ -1,248 +1,298 @@
-# 💼 Portfólio de Projetos 
+# 💼 Portfólio de Projetos Front-end
 
-Repositório contendo projetos desenvolvidos com **HTML5, CSS3 e JavaScript puro (ES6+)**, com foco na consolidação de fundamentos, aplicação de **boas práticas de engenharia de software**, organização de código e construção de **interfaces funcionais, responsivas e escaláveis**.
+Repositório contendo projetos desenvolvidos com **HTML5, CSS3, JavaScript (ES6+) e React**, com foco na consolidação dos fundamentos do desenvolvimento Front-end, construção de interfaces modernas, responsivas e aplicação de boas práticas de programação.
 
-Este portfólio documenta minha **evolução técnica como desenvolvedor**, partindo de layouts estáticos até aplicações completas com **arquitetura organizada, Programação Orientada a Objetos, persistência de dados e integração com APIs REST**.
+Este portfólio documenta minha evolução técnica desde projetos estáticos utilizando HTML e CSS até aplicações desenvolvidas em React, explorando gerenciamento de estado, componentização, Programação Orientada a Objetos, persistência de dados e integração com APIs REST.
 
 ---
 
 ## 🧰 Tecnologias Utilizadas
 
-<div align="left"> 
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40"/> 
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" width="40" height="40"/> 
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/> 
-</div> 
+<div align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" width="40" height="40"/>
+</div>
 
 <br>
 
-* **HTML5** — Estrutura semântica, acessível e organizada
-* **CSS3** — Layout responsivo, Flexbox, Grid, animações e design adaptativo
-* **JavaScript (ES6+)** — Lógica de negócio, POO, manipulação do DOM, event delegation e consumo de APIs
-* **APIs REST** — Fetch API, async/await, tratamento de erros
-* **LocalStorage** — Persistência de dados no navegador
+- **HTML5** — Estrutura semântica e acessível.
+- **CSS3** — Layout responsivo, Flexbox, Grid e animações.
+- **JavaScript (ES6+)** — Lógica de negócio, manipulação do DOM e Programação Orientada a Objetos.
+- **React** — Desenvolvimento de aplicações SPA baseadas em componentes.
+- **APIs REST** — Consumo de serviços utilizando Fetch API.
+- **LocalStorage** — Persistência de dados no navegador.
 
 ---
 
 ## 🎯 Objetivos do Portfólio
 
-* Consolidar fundamentos sólidos de **HTML, CSS e JavaScript moderno**
-* Desenvolver interfaces **responsivas, acessíveis e bem estruturadas**
-* Aplicar **Programação Orientada a Objetos** no front-end
-* Trabalhar com **arquitetura organizada (MVC / separação de responsabilidades)**
-* Integrar e consumir **APIs REST** de forma eficiente
-* Implementar **persistência de dados** no navegador
-* Praticar **manipulação eficiente do DOM** e gerenciamento de eventos
-* Evoluir código procedural para soluções **escaláveis e manuteníveis**
+- Consolidar fundamentos de HTML, CSS, JavaScript e React.
+- Desenvolver interfaces responsivas e acessíveis.
+- Construir aplicações utilizando componentização.
+- Gerenciar estado em aplicações React.
+- Consumir APIs REST.
+- Aplicar Programação Orientada a Objetos.
+- Desenvolver código organizado, reutilizável e escalável.
 
 ---
 
-## 📁 Projetos
+# 📁 Projetos
 
-### 1. 🔍 Google Search Clone
+## 1. 🧾 Gerador de Faturas (React)
 
-**Descrição**
-Clone fiel da interface de busca do Google, recriando layout, tipografia e hierarquia visual com atenção aos detalhes.
+### Descrição
 
-**Tecnologias**
-HTML5 · CSS3
+Aplicação desenvolvida em **React** para gerenciamento de clientes e faturas. O sistema permite cadastrar clientes, adicionar múltiplos serviços para cada cliente, editar e remover faturas, além de calcular automaticamente o valor total das cobranças.
 
-**Conceitos Aplicados**
+### Tecnologias
 
-* HTML semântico
-* Box model e posicionamento
-* Flexbox para alinhamento
-* Design responsivo com media queries
-* Uso de unidades relativas (rem, %)
+React • JavaScript (ES6+) • HTML5 • CSS3 • React Icons
 
-**Objetivo**
-Consolidar fundamentos de estruturação de layout e responsividade sem uso de frameworks.
+### Funcionalidades
 
----
+- Cadastro de clientes
+- Cadastro de múltiplas faturas
+- Adição de novos serviços para um cliente
+- Edição de faturas
+- Remoção de faturas
+- Cálculo automático do valor total por cliente
+- Cálculo do valor total geral
+- Validação dos formulários
+- Interface organizada em componentes reutilizáveis
 
-### 2. 📸 Instagram Login Clone
+### Conceitos Aplicados
 
-**Descrição**
-Reprodução da tela de login do Instagram com validações de formulário, interações dinâmicas e feedback visual ao usuário.
+- Componentização
+- useState
+- Props
+- Formulários controlados
+- Renderização condicional
+- Renderização de listas
+- CRUD completo
+- Atualização imutável utilizando `map`, `filter` e `reduce`
+- Comunicação entre componentes
+- Geração de identificadores únicos com `crypto.randomUUID()`
 
-**Tecnologias**
-HTML5 · CSS3 · JavaScript
+### Objetivo
 
-**Funcionalidades**
-
-* Validação de campos obrigatórios
-* Verificação de tamanho mínimo de login e senha
-* Exibição e ocultação de senha
-* Mensagens de erro visuais
-* Layout responsivo
-
-**Conceitos Aplicados**
-
-* Manipulação do DOM
-* Event listeners e event handling
-* Validação de formulários no front-end
-* Funções de temporização (`setTimeout`)
-
-**Objetivo**
-Integrar estrutura, estilo e comportamento no front-end.
+Praticar os fundamentos do React através da construção de uma aplicação com regras de negócio reais, gerenciamento de estado e comunicação entre componentes.
 
 ---
 
-### 3. 🎬 Netflix Home Clone
+## 2. ☁️ Site de Clima
 
-**Descrição**
-Recriação da página inicial da Netflix com múltiplas seções, navegação superior e foco em hierarquia visual.
+### Descrição
 
-**Tecnologias**
-HTML5 · CSS3
-
-**Conceitos Aplicados**
-
-* CSS Grid para layouts complexos
-* Flexbox para componentes reutilizáveis
-* Efeitos de hover e transições
-* Organização visual de grandes volumes de conteúdo
-* Design em modo escuro (dark mode)
-
-**Objetivo**
-Desenvolver layouts complexos e trabalhar composição visual em interfaces ricas.
-
----
-
-### 4. 📇 Gerenciador de Contatos
-
-**Descrição**
-Aplicação completa de gerenciamento de contatos com operações CRUD, validações de dados, persistência local e arquitetura organizada.
-
-**Tecnologias**
-HTML5 · CSS3 · JavaScript (ES6+) · LocalStorage
-
-**Funcionalidades**
-
-* Cadastro, edição e exclusão de contatos
-* Validação de telefone e e-mail com regex
-* Ordenação alfabética (crescente e decrescente)
-* Busca dinâmica de contatos
-* Modal de confirmação para exclusões
-* Persistência automática dos dados
-* Feedback visual nas operações
-
-**Destaques Técnicos**
-
-* Programação Orientada a Objetos (classes)
-* Encapsulamento com propriedades privadas (`#`)
-* Arquitetura baseada em **MVC**
-* Separação clara entre View, Controller, Model e Repository
-* Event delegation para melhor performance
-* Código modular e escalável
-
-**Objetivo**
-Aplicar POO em JavaScript, estruturar código escalável e praticar padrões de arquitetura no front-end.
-
----
-
-### 5. ☁️ Site de Clima
-
-**Descrição**
 Aplicação meteorológica que exibe condições climáticas em tempo real por meio da integração com múltiplas APIs externas.
 
-**Tecnologias**
-HTML5 · CSS3 · JavaScript (ES6+) · Fetch API · Geolocation API
+### Tecnologias
 
-**APIs Integradas**
+HTML5 • CSS3 • JavaScript (ES6+) • Fetch API • Geolocation API
 
-* Open-Meteo (dados meteorológicos)
-* Geoapify (geocodificação)
-* BigDataCloud (reverse geocoding)
+### APIs Integradas
 
-**Funcionalidades**
+- Open-Meteo
+- Geoapify
+- BigDataCloud
 
-* Detecção automática de localização via GPS
-* Busca manual por cidade
-* Exibição de temperatura atual, máxima e mínima
-* Informações de vento, umidade e probabilidade de chuva
-* Background dinâmico conforme condição climática
-* Tema adaptativo (claro/escuro)
-* Tratamento de erros e validações
+### Funcionalidades
 
-**Destaques Técnicos**
+- Detecção automática da localização
+- Busca manual por cidade
+- Temperatura atual, máxima e mínima
+- Informações de vento, umidade e chuva
+- Background dinâmico
+- Tema claro e escuro
+- Tratamento de erros
 
-* Uso de `async/await`
-* Tratamento de erros com `try/catch`
-* Integração simultânea de múltiplas APIs REST
-* Atualização dinâmica da interface
+### Conceitos Aplicados
 
-**Objetivo**
-Dominar requisições assíncronas e integração com APIs externas.
+- Async/Await
+- Fetch API
+- Tratamento de erros
+- Integração com APIs REST
+- Manipulação dinâmica do DOM
 
----
+### Objetivo
 
-### 6. 📚 To-Do List
-
-**Descrição**
-Sistema de gerenciamento de tarefas com categorização, filtros, controle de status e persistência local.
-
-**Tecnologias**
-HTML5 · CSS3 · JavaScript (ES6+) · LocalStorage
-
-**Funcionalidades**
-
-* CRUD completo de tarefas
-* Sistema de categorias (Pessoal, Estudos, Trabalho)
-* Controle de status (Não Iniciado, Em Andamento, Concluído)
-* Filtros dinâmicos
-* Modal de confirmação para exclusão
-* Edição de tarefas
-* Data de criação automática
-* Persistência de dados
-
-**Destaques Técnicos**
-
-* Classe `Tarefa` com construtor personalizado
-* Classe `App` para organização da aplicação
-* Gerenciamento de estado com encapsulamento
-* Event delegation centralizada
-* Formatação de datas com `Intl.DateTimeFormat`
-
-**Objetivo**
-Construir uma aplicação completa com arquitetura organizada e controle de estado.
+Praticar requisições assíncronas e integração com APIs.
 
 ---
 
-## 📈 Evolução e Aprendizados
+## 3. 📇 Gerenciador de Contatos
 
-* Evolução de layouts estáticos para aplicações dinâmicas
-* Transição de código procedural para Orientado a Objetos
-* Uso consistente de `async/await`
-* Validações robustas com regex
-* Arquitetura MVC no front-end
-* Código modular e manutenível
+### Descrição
+
+Aplicação completa de gerenciamento de contatos utilizando arquitetura organizada, persistência local e Programação Orientada a Objetos.
+
+### Tecnologias
+
+HTML5 • CSS3 • JavaScript • LocalStorage
+
+### Funcionalidades
+
+- CRUD completo
+- Busca dinâmica
+- Ordenação
+- Validação de e-mail
+- Validação de telefone
+- Modal de confirmação
+- Persistência automática
+
+### Conceitos Aplicados
+
+- Programação Orientada a Objetos
+- MVC
+- Encapsulamento
+- Event Delegation
+- LocalStorage
+
+### Objetivo
+
+Aplicar arquitetura organizada e Programação Orientada a Objetos em JavaScript.
 
 ---
 
-## 🎓 Metodologia de Desenvolvimento
+## 4. 📚 To-Do List
 
-* Planejamento e definição de requisitos
-* Implementação incremental por funcionalidade
-* Refatoração contínua
-* Testes em diferentes navegadores e resoluções
-* Organização e documentação do código
+### Descrição
+
+Sistema de gerenciamento de tarefas com categorias, filtros, persistência local e controle de status.
+
+### Tecnologias
+
+HTML5 • CSS3 • JavaScript • LocalStorage
+
+### Funcionalidades
+
+- CRUD completo
+- Categorias
+- Controle de status
+- Busca e filtros
+- Modal de confirmação
+- Persistência automática
+
+### Conceitos Aplicados
+
+- Classes
+- Encapsulamento
+- Event Delegation
+- LocalStorage
+- Organização de código
+
+### Objetivo
+
+Praticar arquitetura de aplicações Front-end.
+
+---
+
+## 5. 📸 Instagram Login Clone
+
+### Descrição
+
+Reprodução da tela de login do Instagram com validações de formulário e interações dinâmicas.
+
+### Tecnologias
+
+HTML5 • CSS3 • JavaScript
+
+### Funcionalidades
+
+- Validação dos campos
+- Mostrar/Ocultar senha
+- Feedback visual
+- Responsividade
+
+### Conceitos Aplicados
+
+- Manipulação do DOM
+- Eventos
+- Validação de formulários
+
+### Objetivo
+
+Consolidar integração entre HTML, CSS e JavaScript.
+
+---
+
+## 6. 🎬 Netflix Home Clone
+
+### Descrição
+
+Recriação da página inicial da Netflix utilizando HTML e CSS.
+
+### Tecnologias
+
+HTML5 • CSS3
+
+### Conceitos Aplicados
+
+- CSS Grid
+- Flexbox
+- Responsividade
+- Hierarquia visual
+- Dark Mode
+
+### Objetivo
+
+Praticar layouts complexos utilizando CSS.
+
+---
+
+## 7. 🔍 Google Search Clone
+
+### Descrição
+
+Clone da interface de busca do Google desenvolvido utilizando HTML e CSS.
+
+### Tecnologias
+
+HTML5 • CSS3
+
+### Conceitos Aplicados
+
+- HTML semântico
+- Box Model
+- Flexbox
+- Responsividade
+
+### Objetivo
+
+Consolidar fundamentos de HTML e CSS.
+
+---
+
+## 📈 Evolução Técnica
+
+Ao longo destes projetos foi possível evoluir em diversos aspectos do desenvolvimento Front-end:
+
+- Evolução de layouts estáticos para aplicações SPA.
+- Consolidação dos fundamentos de HTML, CSS e JavaScript.
+- Programação Orientada a Objetos.
+- Arquitetura MVC.
+- Componentização com React.
+- Gerenciamento de estado utilizando Hooks.
+- Comunicação entre componentes via Props.
+- Atualização imutável de estados complexos.
+- Consumo de APIs REST.
+- Desenvolvimento de aplicações organizadas e escaláveis.
 
 ---
 
 ## 📬 Contato
 
 **Adriano Mateus**
-Desenvolvedor 
 
-LinkedIn: [https://www.linkedin.com/in/adrianomts7](https://www.linkedin.com/in/adrianomts7)
+🔗 LinkedIn: https://www.linkedin.com/in/adrianomts7
 
 ---
 
 ## 📄 Licença
 
-Este projeto está sob a licença **MIT**. Consulte o arquivo `LICENSE` para mais informações.
+Este repositório está licenciado sob a licença **MIT**.
 
 ---
 
-Desenvolvido por **Adriano Mateus**
+Desenvolvido por **Adriano Mateus**.

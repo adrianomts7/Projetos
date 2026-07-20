@@ -1,0 +1,311 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cinza-padrao: #f1f3f5;
+  --cinza-escuro: #212529;
+  --azul-padrao: #1c7ed6;
+  --verde: #37b24d;
+  --amarelo: #f59f00;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  background-color: var(--azul-padrao);
+}
+
+.container {
+  width: 90rem;
+  margin: 2.2rem auto;
+  font-weight: 500;
+  padding: 3rem 5rem 2rem 1rem;
+  border-radius: 10px;
+}
+
+header {
+  width: 90rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 9rem;
+}
+
+button {
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  border-radius: 100vw;
+}
+
+.btn-abrir-modal {
+  width: 23rem;
+  padding: 1rem;
+  color: var(--cinza-padrao);
+  font-size: 1.7rem;
+  background-color: var(--azul-padrao);
+  outline: 4px solid var(--cinza-padrao);
+}
+
+.btn-abrir-modal:hover {
+  background-color: var(--cinza-padrao);
+  outline: none;
+  color: var(--azul-padrao);
+}
+
+.titulo {
+  color: #ebfbee;
+  font-size: 2.9rem;
+}
+
+.sombra {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 999;
+  background-color: rgb(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+}
+
+.form-fatura {
+  width: 50rem;
+  margin: 7rem auto;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding: 3.3rem 0;
+  scroll-behavior: smooth;
+}
+
+.area-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 70%;
+  margin: 0 auto 2rem auto;
+  font-weight: 500;
+}
+
+.titulo-form {
+  color: var(--verde);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+label {
+ font-size: 1.5rem; 
+}
+
+input {
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+}
+
+input:focus {
+  outline: 3px solid #2b8a3e;
+}
+
+.btn-form-fatura {
+  display: block;
+  width: 35rem;
+  padding: 1rem;
+  margin: 1rem auto;
+  background-color: #2b8a3e;
+  color: #f4f4f4;
+}
+
+.btn-form-fatura:hover {
+  outline: 4px solid #2b8a3e;
+  background-color: #f4f4f4;
+  color: #2b8a3e;
+}
+
+.fechar-form-fatura {
+  position: absolute;
+  top: 11%;
+  right: 32%;
+  transform: translate(-50%, -50%);
+  background-color: #c92a2a;
+  color: #f4f4f4;
+  padding: 1.2rem;
+  border-radius: 100vw;
+  font-size: 1.5rem;
+}
+
+.fechar-form-fatura:hover {
+  background-color: #f03e3e;
+}
+
+.lista-faturas {
+  padding: 1.2rem 0.8rem;
+  background-color: var(--cinza-padrao);
+  color: var(--cinza-escuro);
+  border-radius: 10px;
+  font-weight: 500;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 2rem;
+  padding: 1rem  0.5rem;
+}
+
+.mensagem-fatura-vazia {
+  text-align: center;
+  color: #c92a2a;
+  font-size: 1.8rem;
+}
+
+.area-faturas {
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nome-cliente {
+  font-size: 1.7rem;
+  margin-bottom: 1.2rem;
+  color: #000;
+  font-weight: 500;
+}
+
+.valor {
+  color: var(--verde);
+  font-weight: 600;
+}
+
+.valor-total-fatura {
+  color: var(--verde);
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.area-butoes-fatura {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.area-dados-fatura {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 4.6rem;
+  font-size: 1.6rem;
+}
+
+.area-dados {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.area-dados-botoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.dados-fatura {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.btn-mostrar-mais {
+  background-color: var(--verde);
+  color: var(--cinza-padrao);
+  padding: 0.8rem 5rem;
+}
+
+.btn-mostrar-mais:hover {
+  color: var(--verde);
+  outline: 4px solid var(--verde);
+  background-color: var(--cinza-padrao);
+}
+
+.btn-adicionar-nova-fatura {
+  background-color: var(--azul-padrao);
+  color: var(--cinza-padrao);
+  padding: 1rem 2rem;
+}
+
+.btn-adicionar-nova-fatura:hover {
+  color: var(--azul-padrao);
+  outline: 4px solid var(--azul-padrao);
+  background-color: var(--cinza-padrao);  
+}
+
+.area-dados-complementar {
+ display: flex;
+ justify-content: space-between;
+ align-items: centerx;
+ margin-bottom: 1.6rem;
+ background-color: var(--cinza-padrao);
+ border-radius: 10px;
+ padding: 1rem 0.9rem;
+}
+
+.texto-dados {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.search {
+  outline: 3px solid var(--cinza-escuro);
+  width: 30rem;
+}
+
+.botoes-fatura-acoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  margin-right: 1.2rem;
+}
+
+.botoes-fatura-acoes button {
+  padding: 0.4rem 3.6rem;
+  color: var(--cinza-padrao);
+}
+
+.btn-fatura-apagar {
+  background-color: #c92a2a;
+}
+
+.btn-fatura-editar {
+  background-color: #f59f00;
+}
+
+.btn-fatura-apagar:hover {
+  background-color: var(--cinza-padrao);
+  color: #f03e3e;
+  outline: 4px solid #f03e3e;
+}
+
+.btn-fatura-editar:hover {
+  background-color: var(--cinza-padrao);
+  color: var(--amarelo);
+  outline: 4px solid var(--amarelo);
+}
