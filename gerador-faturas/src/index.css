@@ -184,6 +184,8 @@ li {
   margin-bottom: 1.2rem;
   color: #000;
   font-weight: 500;
+  border-bottom: 3px solid var(--azul-padrao);
+  width: 21rem;
 }
 
 .valor {
@@ -221,7 +223,9 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4rem;
+  padding: 1rem;
+  border: 1px solid #212529;
+  margin-bottom: 1rem;
 }
 
 .dados-fatura {
@@ -252,16 +256,6 @@ li {
   color: var(--azul-padrao);
   outline: 4px solid var(--azul-padrao);
   background-color: var(--cinza-padrao);  
-}
-
-.area-dados-complementar {
- display: flex;
- justify-content: space-between;
- align-items: centerx;
- margin-bottom: 1.6rem;
- background-color: var(--cinza-padrao);
- border-radius: 10px;
- padding: 1rem 0.9rem;
 }
 
 .texto-dados {
@@ -309,3 +303,43 @@ li {
   color: var(--amarelo);
   outline: 4px solid var(--amarelo);
 }
+
+.mensagem {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sucesso {
+  color: #2b8a3e;
+}
+
+.erro {
+  color: #c92a2a;
+}
+
+.area-dados-complementar {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.dados-complementares {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #ebfbee;
+  padding: 1.6rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.texto-dados-complementares {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #212529;
+}
+
+.valor-dados-complementares {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+

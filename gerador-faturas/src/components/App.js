@@ -53,14 +53,24 @@ function GeradorFatura() {
 function CampoComplementar({ listaClientes }) {
   const valorTotalFaturasClientes = listaClientes.reduce((acc, clientes, i) => acc += clientes.valorTotal ,0);
   const quantidadeFaturasGeradas = listaClientes.reduce((acc, clientes) => acc += clientes.faturas.length, 0);
+  const totalClientes = listaClientes.length;
 
   return ( 
     <div className="area-dados-complementar">
-      <div className="dados-fatura">
-        <p className="texto-dados"> Valor Total das Faturas:
-          <span className="valor-total-fatura">R$ {valorTotalFaturasClientes}</span></p>
-        <p className="texto-dados">Quantidade Faturas geradas <span className="quantidade">{quantidadeFaturasGeradas}</span> Faturas</p>
-      </div>
+      <DadosComplementares texto={'Valor a receber Faturas:'} valor={`R$ ${valorTotalFaturasClientes}`} corValor={'#2b8a3e'} />
+      <DadosComplementares texto={'Quantidade Faturas geradas'}  valor={quantidadeFaturasGeradas} />
+      <DadosComplementares texto={'Quantidade Clientes'}  valor={totalClientes} />
+
+    </div>
+  )
+}
+
+function DadosComplementares({ texto, valor, corTexto = '#212529', corValor }) {
+  return (
+    <div className="dados-complementares">
+      <p className="texto-dados-complementares" style={{color: corTexto}}>{texto}</p>
+
+      <p className="valor-dados-complementares" style={{ color: corValor }}>{valor}</p>
     </div>
   )
 }

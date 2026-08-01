@@ -1,5 +1,8 @@
-
 export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIsModal, onDadosAcaoForm, onApagarFatura}) {
+  const quantidadeItensFatura = fatura.faturas.length;
+  const nomeCliente = fatura.faturas[0].nome;
+  console.log(fatura, quantidadeItensFatura);
+
   function moodAdicionarNovaFatura(id, nome) {
    onIsModal(true);
    onDadosAcaoForm({ id: id, nome: nome, acao: 'adicionar' });
@@ -10,28 +13,28 @@ export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIs
     onDadosAcaoForm({idCliente ,idFatura, dadosFatura, acao: 'editar' })
   }
 
-  return <li style={mostrarMaisInfo === fatura.id ? { border: '3px solid var(--verde)', padding: '2rem 0.8rem'} : {}}>
+  return <li style={mostrarMaisInfo === fatura.id ? { border: '3px solid var(--verde)', padding: '2rem 0.8rem'} : {}} >
     <div>
-      <p className="nome-cliente">Nome do Cliente: {fatura.faturas[0].nome}</p>
+      <p className="nome-cliente" style={{width: `${nomeCliente.length * 10}px` }}>{nomeCliente}</p>
       
       <div className="area-faturas">
-        <p>Quantidade de Produtos Solicitados: <span className="quantidade-produtos">{fatura.faturas.length} </span></p>
-        
+        <p>Quantidade de Produtos Solicitados: <span className="quantidade-produtos">{quantidadeItensFatura}</span></p>
+
         <p>Valor Total: <span className="valor-total-fatura">R$ {fatura.valorTotal}</span></p>
       </div>
       
-      { mostrarMaisInfo === fatura.id && <DivDadosFatura fatura={fatura} onMoodEditarFatura={moodEditarFatura} onApagarFatura={onApagarFatura}  /> }
+      { mostrarMaisInfo === fatura.id && <DivDadosFatura fatura={fatura} onMoodEditarFatura={moodEditarFatura} onApagarFatura={onApagarFatura} quantidadeItensFatura={quantidadeItensFatura}  /> }
      
       <div className="area-butoes-fatura">
         <button className="btn-mostrar-mais" onClick={() => onMostrarMaisInfo(fatura.id)}>{ mostrarMaisInfo ? "Ocultar Infos" : "Mostrar Infos" }</button>
-        <button className="btn-adicionar-nova-fatura" onClick={() => moodAdicionarNovaFatura(fatura.id, fatura.faturas[0].nome)} >Adicionar Nova Fatura para {fatura.faturas[0].nome}</button>
+        
+        <button className="btn-adicionar-nova-fatura" onClick={() => moodAdicionarNovaFatura(fatura.id, nomeCliente)} >Adicionar Nova Fatura para {nomeCliente}</button>
       </div>
     </div>
   </li>
 }
 
-function DivDadosFatura({ fatura, onMoodEditarFatura, onApagarFatura }) {
-  const quantidadeItensFatura = fatura.faturas.length;
+function DivDadosFatura({ fatura, onMoodEditarFatura, onApagarFatura, quantidadeItensFatura }) {
   const idCliente = fatura.id;
 
   return (  
