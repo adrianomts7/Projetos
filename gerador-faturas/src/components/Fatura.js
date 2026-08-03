@@ -1,7 +1,6 @@
 export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIsModal, onDadosAcaoForm, onApagarFatura}) {
   const quantidadeItensFatura = fatura.faturas.length;
   const nomeCliente = fatura.faturas[0].nome;
-  console.log(fatura, quantidadeItensFatura);
 
   function moodAdicionarNovaFatura(id, nome) {
    onIsModal(true);
@@ -47,8 +46,9 @@ function DivDadosFatura({ fatura, onMoodEditarFatura, onApagarFatura, quantidade
           <div className="dados-fatura" >
              
             <p>{(i + 1)}º  Descrição: {fatura.descricao}</p>  
-            <p>Quantidade: {fatura.quantidade}</p>
-            <p>Valor: <span className="valor">R$ {fatura.valor}</span></p>
+            <p>Quantidade: {fatura.quantidade} {fatura.quantidade > 1 ? 'Produtos' : 'Produto'}</p>
+            <p>Valor Unidade: <span className="valor">R$ {fatura.valor}</span></p>
+            <p>Valor Total: <span className="valor">R$ {fatura.valor * fatura.quantidade}</span></p>
           </div>
           {
             quantidadeItensFatura > 1 && (

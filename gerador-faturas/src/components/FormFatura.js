@@ -46,11 +46,7 @@ export default function FormFatura({
     };
 
     function resetandoMensagemUser() {
-      setTimeout(() => setMensagemUser(null), 3000);
-    }
-
-    function fecharForm() {
-      setTimeout(() => setIsModal(false), 3000);
+      setTimeout(() => (setMensagemUser(null), setIsModal(false)), 3000);
     }
 
     if (
@@ -80,19 +76,17 @@ export default function FormFatura({
         tipo: "sucesso",
       });
       resetandoMensagemUser();
-      fecharForm();
       return;
     }
 
     if (dadosAcao.acao === "adicionar") {
       onAdicionarFatura(dadosAcao.id, novaFatura);
       setMensagemUser({
-        mensagem: `Nova Fatura adicionada com sucesso ao cliente ${novaFatura.nome}`,
+        mensagem: `Nova Fatura adicionada com sucesso a ${novaFatura.nome}`,
         tipo: "sucesso",
       });
       onDadosAcaoForm(null);
       resetandoMensagemUser();
-      fecharForm();
       return;
     }
 
@@ -107,7 +101,6 @@ export default function FormFatura({
         mensagem: `Fatura Editada com sucesso do cliente ${novaFatura.nome}`, tipo: 'sucesso',
       });
       resetandoMensagemUser();
-      fecharForm();
       onDadosAcaoForm(null);
       return;
     }
