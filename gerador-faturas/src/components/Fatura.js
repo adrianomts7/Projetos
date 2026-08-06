@@ -1,4 +1,4 @@
-export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIsModal, onDadosAcaoForm, onApagarFatura}) {
+export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIsModal, onDadosAcaoForm, onApagarFatura, onConfirmacaoPagouFatura}) {
   const quantidadeItensFatura = fatura.faturas.length;
   const nomeCliente = fatura.faturas[0].nome;
 
@@ -27,7 +27,11 @@ export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIs
       <div className="area-butoes-fatura">
         <button className="btn-mostrar-mais" onClick={() => onMostrarMaisInfo(fatura.id)}>{ mostrarMaisInfo ? "Ocultar Infos" : "Mostrar Infos" }</button>
         
+        <button className="btn-fatura-paga" onClick={() => onConfirmacaoPagouFatura(fatura.id, fatura)} >Pagar Fatura</button>
+
+
         <button className="btn-adicionar-nova-fatura" onClick={() => moodAdicionarNovaFatura(fatura.id, nomeCliente)} >Adicionar Nova Fatura para {nomeCliente}</button>
+
       </div>
     </div>
   </li>

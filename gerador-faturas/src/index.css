@@ -76,13 +76,12 @@ button {
   width: 100%;
 }
 
-.form-fatura {
+.modal {
   width: 50rem;
   margin: 7rem auto;
   background-color: #f4f4f4;
   border-radius: 10px;
   padding: 3.3rem 0;
-  scroll-behavior: smooth;
 }
 
 .area-input {
@@ -234,13 +233,13 @@ li {
   gap: 0.8rem;
 }
 
-.btn-mostrar-mais {
+.btn-fatura-paga, .btn-modal-sim {
   background-color: var(--verde);
   color: var(--cinza-padrao);
   padding: 0.8rem 5rem;
 }
 
-.btn-mostrar-mais:hover {
+.btn-fatura-paga:hover, .btn-modal-sim:hover {
   color: var(--verde);
   outline: 4px solid var(--verde);
   background-color: var(--cinza-padrao);
@@ -279,26 +278,31 @@ li {
   margin-right: 1.2rem;
 }
 
-.botoes-fatura-acoes button {
+.botoes-fatura-acoes button, .btn-modal-nao {
   padding: 0.4rem 3.6rem;
   color: var(--cinza-padrao);
 }
 
-.btn-fatura-apagar {
+.btn-fatura-apagar, .btn-modal-nao {
   background-color: #c92a2a;
 }
 
-.btn-fatura-editar {
+.btn-mostrar-mais {
+  color: var(--cinza-padrao);
+  padding: 0.8rem 5rem;
+}
+
+.btn-fatura-editar, .btn-mostrar-mais {
   background-color: #f59f00;
 }
 
-.btn-fatura-apagar:hover {
+.btn-fatura-apagar:hover, .btn-modal-nao:hover {
   background-color: var(--cinza-padrao);
   color: #f03e3e;
   outline: 4px solid #f03e3e;
 }
 
-.btn-fatura-editar:hover {
+.btn-fatura-editar:hover, .btn-mostrar-mais:hover {
   background-color: var(--cinza-padrao);
   color: var(--amarelo);
   outline: 4px solid var(--amarelo);
@@ -307,6 +311,11 @@ li {
 .mensagem {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.atencao {
+  color: var(--azul-padrao);
+  font-weight: 500;
 }
 
 .sucesso {
@@ -343,3 +352,41 @@ li {
   font-weight: bold;
 }
 
+.area-confirmacao {
+  text-align: center;
+  margin: 12rem auto;
+}
+
+.titulo-modal {
+  font-size: 2.2rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.area-confirmacao {
+  width: 60rem;
+  padding: 5rem;
+}
+
+.area-modal-confirmacao {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.btn-modal-nao {
+  padding: 0.3rem 5rem;
+}
+
+.mensagem-modal {
+  margin-bottom: 3.6rem;
+}
+
+.valor-fatura-modal {
+  font-size: 3rem;
+  font-weight: bold;
+}

@@ -17,7 +17,7 @@ export default function FormFatura({
   descricao: "",
   quantidade: 1,
   valor: "",
-});
+  });
   const [mensagemUser, setMensagemUser] = useState(null);
 
   useEffect(() => {
@@ -27,6 +27,7 @@ export default function FormFatura({
       descricao: dadosAcao?.dadosFatura?.descricao || "",
       quantidade: dadosAcao?.dadosFatura?.quantidade || 1,
       valor: dadosAcao?.dadosFatura?.valor || "",
+      faturaPaga: dadosAcao?.faturaPaga || false
     });
   },[dadosAcao])
 
@@ -70,7 +71,7 @@ export default function FormFatura({
     }
 
     if (!dadosAcao) {
-      onCadastrarFatura(novaFatura, novaFatura.id);
+      onCadastrarFatura(novaFatura, novaFatura.id, false);
       setMensagemUser({
         mensagem: "Fatura gerada com sucesso!",
         tipo: "sucesso",
@@ -108,7 +109,7 @@ export default function FormFatura({
 
   return (
     <div className="sombra">
-      <form className="form-fatura" onSubmit={enviarForm}>
+      <form className="form-fatura modal" onSubmit={enviarForm}>
         <h3 className="titulo-form">
           {dadosAcao?.acao === "editar"
             ? "Editar Fatura"
