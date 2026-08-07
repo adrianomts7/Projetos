@@ -145,6 +145,17 @@ input:focus {
   background-color: #f03e3e;
 }
 
+.select-mostrar-dados {
+  width: 22rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
 .lista-faturas {
   padding: 1.2rem 0.8rem;
   background-color: var(--cinza-padrao);
@@ -389,4 +400,16 @@ li {
 .valor-fatura-modal {
   font-size: 3rem;
   font-weight: bold;
+}
+
+.area-faturas-dados {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selo-pagou {
+  font-size: 2rem;
+  margin-right: 2rem;
+  color: #2b8a3e;
+  font-weight: bolder;
 }

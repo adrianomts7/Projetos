@@ -14,8 +14,11 @@ export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIs
 
   return <li style={mostrarMaisInfo === fatura.id ? { border: '3px solid var(--verde)', padding: '2rem 0.8rem'} : {}} >
     <div>
-      <p className="nome-cliente" style={{width: `${nomeCliente.length * 10}px` }}>{nomeCliente}</p>
-      
+      <div className="area-faturas-dados">
+        <p className="nome-cliente" style={{width: `${nomeCliente.length * 10}px` }}>{nomeCliente}</p>
+        <span className="selo-pagou">{fatura.faturaPaga ? 'PAGO' : ''}</span>
+      </div>
+
       <div className="area-faturas">
         <p>Quantidade de Produtos Solicitados: <span className="quantidade-produtos">{quantidadeItensFatura}</span></p>
 
@@ -27,7 +30,7 @@ export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIs
       <div className="area-butoes-fatura">
         <button className="btn-mostrar-mais" onClick={() => onMostrarMaisInfo(fatura.id)}>{ mostrarMaisInfo ? "Ocultar Infos" : "Mostrar Infos" }</button>
         
-        <button className="btn-fatura-paga" onClick={() => onConfirmacaoPagouFatura(fatura.id, fatura)} >Pagar Fatura</button>
+        { !fatura.faturaPaga && <button className="btn-fatura-paga" onClick={() => onConfirmacaoPagouFatura(fatura.id, fatura)} >Pagar Fatura</button>}
 
 
         <button className="btn-adicionar-nova-fatura" onClick={() => moodAdicionarNovaFatura(fatura.id, nomeCliente)} >Adicionar Nova Fatura para {nomeCliente}</button>
