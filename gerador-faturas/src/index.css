@@ -413,3 +413,7 @@ li {
   color: #2b8a3e;
   font-weight: bolder;
 }
+
+.sem-scroll {
+  overflow: none;
+}

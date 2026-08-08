@@ -9,6 +9,7 @@ export default function FormFatura({
   dadosAcao,
   onDadosAcaoForm,
   onEditarFatura,
+  onDestaqueModal
 }) {
 
   const [fatura, setFatura] = useState({
@@ -30,13 +31,10 @@ export default function FormFatura({
       valor: dadosAcao?.dadosFatura?.valor || "",
       faturaPaga: dadosAcao?.faturaPaga || false
     });
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-
-  },[dadosAcao])
+    
+    onDestaqueModal();
+   
+  },[dadosAcao, onDestaqueModal])
 
   function pegandoDadosInput(e) {
     const { name, value } = e.target;

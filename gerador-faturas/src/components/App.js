@@ -42,6 +42,7 @@ function GeradorFatura() {
   }
   
   function confirmacaoClientePagou(idCliente, fatura) {
+    destaqueModal();
     setConfirmacaoPagarFatura(true);
     setDadosPagarFatura({idCliente, fatura});
   }
@@ -56,6 +57,15 @@ function GeradorFatura() {
     resetStatesConfirmacao();
   }
 
+  function destaqueModal() {
+    setTimeout(() => setMostrarMaisInfo(null), 450)
+    
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
   useEffect(function() {
     localStorage.setItem("faturas", JSON.stringify(listaClientes));
   }, [listaClientes]);
@@ -63,7 +73,7 @@ function GeradorFatura() {
   return <div className="container">
     <Header onIsModal={setIsModal} />
 
-    { isModal && <FormFatura setIsModal={setIsModal} isModal={isModal} onCadastrarFatura={novaFatura} onAdicionarFatura={adicionarNovaFaturaCliente} dadosAcao={dadosAcao} onDadosAcaoForm={setDadosAcao} onEditarFatura={editarFaturaCliente} />}
+    { isModal && <FormFatura setIsModal={setIsModal} isModal={isModal} onCadastrarFatura={novaFatura} onAdicionarFatura={adicionarNovaFaturaCliente} dadosAcao={dadosAcao} onDadosAcaoForm={setDadosAcao} onEditarFatura={editarFaturaCliente} onDestaqueModal={destaqueModal} />}
     
     <CampoComplementar listaClientes={listaClientes} />
     { confirmacaoPagarFatura && <ModalConfirmacaoPagamento onResetPagamentoConcluido={resetStatesConfirmacao} dadosPagarFatura={dadosPagarFatura} onClientePagouFatura={clientePagouFatura} /> }
