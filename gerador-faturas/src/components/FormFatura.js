@@ -20,7 +20,8 @@ export default function FormFatura({
   });
   const [mensagemUser, setMensagemUser] = useState(null);
 
-  useEffect(() => {
+  useEffect(function(){ 
+
     setFatura({
       id: dadosAcao?.idFatura || crypto.randomUUID(),
       nome: dadosAcao?.nome || dadosAcao?.dadosFatura?.nome || '',
@@ -29,6 +30,12 @@ export default function FormFatura({
       valor: dadosAcao?.dadosFatura?.valor || "",
       faturaPaga: dadosAcao?.faturaPaga || false
     });
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+
   },[dadosAcao])
 
   function pegandoDadosInput(e) {
