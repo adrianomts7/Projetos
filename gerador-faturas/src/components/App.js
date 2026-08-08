@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "./Header";
 import FormFatura from "./FormFatura";
@@ -15,7 +15,7 @@ export default function App() {
 
 function GeradorFatura() {
   const [isModal, setIsModal] = useState(false);
-  const [listaClientes, setListaClientes] = useState([]);
+  const [listaClientes, setListaClientes] = useState(() => (JSON.parse(localStorage.getItem('faturas')) || []));
   const [mostrarMaisInfo, setMostrarMaisInfo] = useState(null);
   const [dadosAcao, setDadosAcao] = useState(null);
   const [confirmacaoPagarFatura, setConfirmacaoPagarFatura] = useState(false);
@@ -55,6 +55,10 @@ function GeradorFatura() {
     setListaClientes(clientes => clientes.map(cliente => cliente.id === idCliente ? {...cliente, faturaPaga: true} : cliente));
     resetStatesConfirmacao();
   }
+
+  useEffect(function() {
+    localStorage.setItem("faturas", JSON.stringify(listaClientes));
+  }, [listaClientes]);
 
   return <div className="container">
     <Header onIsModal={setIsModal} />
