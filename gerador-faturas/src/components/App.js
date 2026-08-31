@@ -1,9 +1,43 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 
 import Header from "./Header";
 import FormFatura from "./FormFatura";
 import ListaFaturas from "./ListaFatura";
 import CampoComplementar from "./CampoComplementar";
+
+const initialState = {
+  listaClientes: JSON.parse(localStorage.getItem('faturas')) || [],
+  isModal: false,
+  mostrarMaisInfo: null,
+  dadosAcao: null,
+  confirmacaoPagarFatura: false,
+  dadosPagarFatura: null
+}
+
+// localStorage.clear();
+
+function reducer(state, action) {
+  switch(action.type) {
+    case 'cadastrarFatura':
+      console.log(state.listaClientes)
+      // Cadastrar uma fatura se o cliente não tiver nenhuma fatura
+      return {...state, listaClientes: [...state.listaClientes, { id: action.payload.id, faturas: [action.payload.fatura], valorTotal: action.payload.fatura.valor * action.payload.fatura.quantidade, faturaPaga: action.payload.faturaPaga }]};
+    
+    case 'adicionarFatura':
+      // Adiciona uma fatura ao cliente ja existente
+      return {...state, listaClientes: state.listaClientes.map(cliente => cliente.id === action.payload.id ? {...cliente, faturas: [...cliente.faturas, action.payload.fatura], valorTotal: cliente.valorTotal + (action.payload.fatura.valor * action.payload.fatura.quantidade) } : cliente ) }
+
+    case 'apagarFaturaCliente':
+        return {...state, listaClientes: state.listaClientes.map(cliente => cliente.id === action.payload.idCliente ? { ...cliente, faturas: cliente.faturas.filter(fatura => fatura.id !== action.payload.idFatura), valorTotal: cliente.valorTotal - action.payload.valor } : cliente) }
+    
+    case 'editarFatura':
+      return {...state, listaClientes: state.listaClientes.map(cliente => cliente.id === action.payload.idCliente ? {...cliente, faturas: cliente.faturas.map(fatura => fatura.id === action.payload.idFatura ? { ...action.payload.faturaEditada } : fatura), valorTotal: (cliente.valorTotal - action.payload.valorAntigo) + (action.payload.faturaEditada.valor * action.payload.faturaEditada.quantidade)} : cliente)}
+
+    default: 
+      throw new Error(`${action.type} inválida`);
+  
+    } 
+}
 
 export default function App() {
   return (
@@ -14,37 +48,23 @@ export default function App() {
 }
 
 function GeradorFatura() {
+  const [ {listaClientes}, dispatch] = useReducer(reducer, initialState);
   const [isModal, setIsModal] = useState(false);
-  const [listaClientes, setListaClientes] = useState(() => (JSON.parse(localStorage.getItem('faturas')) || []));
+  // const [listaClientes, setListaClientes] = useState(() => (JSON.parse(localStorage.getItem('faturas')) || []));
   const [mostrarMaisInfo, setMostrarMaisInfo] = useState(null);
   const [dadosAcao, setDadosAcao] = useState(null);
   const [confirmacaoPagarFatura, setConfirmacaoPagarFatura] = useState(false);
   const [dadosPagarFatura, setDadosPagarFatura] = useState(null);
-    
+   
+
   function mostrarMaisInfoFatura(idSelecionado) {
     setMostrarMaisInfo(id => id === idSelecionado ? null : idSelecionado);
   }
-  
-  function novaFatura(fatura, idCliente, faturaPaga) {
-    setListaClientes(clientes => [...clientes, { id: idCliente, faturas: [fatura], valorTotal: fatura.valor * fatura.quantidade, faturaPaga: faturaPaga }]);
-  }
-  
-  function adicionarNovaFaturaCliente(idCliente, fatura, ) {
-    setListaClientes(clientes => clientes.map(cliente => cliente.id === idCliente ? {...cliente, faturas: [...cliente.faturas, fatura], valorTotal: cliente.valorTotal + (fatura.valor * fatura.quantidade) } : cliente));
-  }
 
-  function apagarFaturaCliente(idCliente, idFatura, valor) {
-    setListaClientes(clientes => clientes.map(cliente => cliente.id === idCliente ? { ...cliente, faturas: cliente.faturas.filter(fatura => fatura.id !== idFatura), valorTotal: cliente.valorTotal - valor } : cliente));
-  }
-
-  function editarFaturaCliente(idCliente, idFatura, faturaEditada, valorAntigo) {
-    setListaClientes(clientes => clientes.map(cliente => cliente.id === idCliente ? {...cliente, faturas: cliente.faturas.map(fatura => fatura.id === idFatura ? { ...faturaEditada } : fatura), valorTotal: (cliente.valorTotal - valorAntigo) + (faturaEditada.valor * faturaEditada.quantidade)} : cliente));
-  }
-  
   function confirmacaoClientePagou(idCliente, fatura) {
     destaqueModal();
-    setConfirmacaoPagarFatura(true);
-    setDadosPagarFatura({idCliente, fatura});
+  //   setConfirmacaoPagarFatura(true);
+  //   setDadosPagarFatura({idCliente, fatura});
   }
   
   function resetStatesConfirmacao() {
@@ -53,7 +73,7 @@ function GeradorFatura() {
   }
   
   function clientePagouFatura(idCliente) {
-    setListaClientes(clientes => clientes.map(cliente => cliente.id === idCliente ? {...cliente, faturaPaga: true} : cliente));
+    // setListaClientes(clientes => clientes.map(cliente => cliente.id === idCliente ? {...cliente, faturaPaga: true} : cliente));
     resetStatesConfirmacao();
   }
 
@@ -70,15 +90,17 @@ function GeradorFatura() {
     localStorage.setItem("faturas", JSON.stringify(listaClientes));
   }, [listaClientes]);
 
+  // console.log(listaClientes);
+
   return <div className="container">
     <Header onIsModal={setIsModal} />
 
-    { isModal && <FormFatura setIsModal={setIsModal} isModal={isModal} onCadastrarFatura={novaFatura} onAdicionarFatura={adicionarNovaFaturaCliente} dadosAcao={dadosAcao} onDadosAcaoForm={setDadosAcao} onEditarFatura={editarFaturaCliente} onDestaqueModal={destaqueModal} />}
+    { isModal && <FormFatura dispatch={dispatch} setIsModal={setIsModal} isModal={isModal}   dadosAcao={dadosAcao} onDadosAcaoForm={setDadosAcao} onDestaqueModal={destaqueModal} />}
     
     <CampoComplementar listaClientes={listaClientes} />
     { confirmacaoPagarFatura && <ModalConfirmacaoPagamento onResetPagamentoConcluido={resetStatesConfirmacao} dadosPagarFatura={dadosPagarFatura} onClientePagouFatura={clientePagouFatura} /> }
 
-    <ListaFaturas listaClientes={listaClientes} mostrarMaisInfo={mostrarMaisInfo} onMostrarMaisInfo={mostrarMaisInfoFatura} onIsModal={setIsModal} onDadosAcaoForm={setDadosAcao} onApagarFatura={apagarFaturaCliente} onConfirmacaoPagouFatura={confirmacaoClientePagou} />
+    <ListaFaturas listaClientes={listaClientes} mostrarMaisInfo={mostrarMaisInfo} onMostrarMaisInfo={mostrarMaisInfoFatura} onIsModal={setIsModal} onDadosAcaoForm={setDadosAcao} onConfirmacaoPagouFatura={confirmacaoClientePagou} dispatch={dispatch} />
     
   </div>
 }

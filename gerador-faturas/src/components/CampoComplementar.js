@@ -1,5 +1,5 @@
 export default function CampoComplementar({ listaClientes }) {
-  const valorTotalFaturasClientes = listaClientes.reduce((acc, clientes, i) => !clientes.faturaPaga ? acc += clientes.valorTotal : acc ,0);
+  const valorTotalFaturasClientes = listaClientes.reduce((acc, clientes) => !clientes.faturaPaga ? acc += clientes.valorTotal : acc ,0);
   const quantidadeFaturasGeradas = listaClientes.reduce((acc, clientes) => acc += clientes.faturas.length, 0);
   const totalClientes = listaClientes.length;
   const faturasPagasTotal = listaClientes.reduce((acc, clientes) => clientes.faturaPaga ? acc += clientes.valorTotal : acc, 0);

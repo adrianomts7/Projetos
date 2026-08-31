@@ -3,13 +3,11 @@ import { HiOutlineX } from "react-icons/hi";
 
 export default function FormFatura({
   setIsModal,
-  isModal,
-  onCadastrarFatura,
-  onAdicionarFatura,
   dadosAcao,
   onDadosAcaoForm,
   onEditarFatura,
-  onDestaqueModal
+  onDestaqueModal,
+  dispatch
 }) {
 
   const [fatura, setFatura] = useState({
@@ -76,7 +74,7 @@ export default function FormFatura({
     }
 
     if (!dadosAcao) {
-      onCadastrarFatura(novaFatura, novaFatura.id, false);
+      dispatch({ type: 'cadastrarFatura', payload: {fatura: novaFatura, id: novaFatura.id, faturaPaga: false} })
       setMensagemUser({
         mensagem: "Fatura gerada com sucesso!",
         tipo: "sucesso",
@@ -86,7 +84,7 @@ export default function FormFatura({
     }
 
     if (dadosAcao.acao === "adicionar") {
-      onAdicionarFatura(dadosAcao.id, novaFatura);
+      dispatch({type: 'adicionarFatura', payload: { id: dadosAcao.id, fatura: novaFatura }});
       setMensagemUser({
         mensagem: `Nova Fatura adicionada com sucesso a ${novaFatura.nome}`,
         tipo: "sucesso",
@@ -97,6 +95,7 @@ export default function FormFatura({
     }
 
     if (dadosAcao.acao === "editar") {
+      dispatch({type: 'editarFatura', payload: {idCliente: dadosAcao.idCliente, idFatura:  dadosAcao.idFatura, faturaEditada: novaFatura, valorAntigo: dadosAcao.dadosFatura.valor * dadosAcao.dadosFatura.quantidade }})
       onEditarFatura(
         dadosAcao.idCliente,
         dadosAcao.idFatura,

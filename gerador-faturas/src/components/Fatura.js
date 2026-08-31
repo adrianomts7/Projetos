@@ -1,4 +1,4 @@
-export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIsModal, onDadosAcaoForm, onApagarFatura, onConfirmacaoPagouFatura}) {
+export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIsModal, onDadosAcaoForm, dispatch, onConfirmacaoPagouFatura}) {
   const quantidadeItensFatura = fatura.faturas.length;
   const nomeCliente = fatura.faturas[0].nome;
 
@@ -25,7 +25,7 @@ export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIs
         <p>Valor Total: <span className="valor-total-fatura">R$ {fatura.valorTotal}</span></p>
       </div>
       
-      { mostrarMaisInfo === fatura.id && <DivDadosFatura fatura={fatura} onMoodEditarFatura={moodEditarFatura} onApagarFatura={onApagarFatura} quantidadeItensFatura={quantidadeItensFatura}  /> }
+      { mostrarMaisInfo === fatura.id && <DivDadosFatura fatura={fatura} onMoodEditarFatura={moodEditarFatura} dispatch={dispatch} quantidadeItensFatura={quantidadeItensFatura}  /> }
      
       <div className="area-butoes-fatura">
         <button className="btn-mostrar-mais" onClick={() => onMostrarMaisInfo(fatura.id)}>{ mostrarMaisInfo ? "Ocultar Infos" : "Mostrar Infos" }</button>
@@ -40,7 +40,7 @@ export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIs
   </li>
 }
 
-function DivDadosFatura({ fatura, onMoodEditarFatura, onApagarFatura, quantidadeItensFatura }) {
+function DivDadosFatura({ fatura, onMoodEditarFatura, dispatch, quantidadeItensFatura }) {
   const idCliente = fatura.id;
 
   return (  
@@ -61,7 +61,8 @@ function DivDadosFatura({ fatura, onMoodEditarFatura, onApagarFatura, quantidade
             quantidadeItensFatura > 1 && (
               <div className="botoes-fatura-acoes">
                   <button className="btn-fatura-editar" onClick={() => onMoodEditarFatura(idCliente, fatura.id, fatura)}>Editar Fatura</button>
-                  <button className="btn-fatura-apagar" onClick={() => onApagarFatura(idCliente, fatura.id, (fatura.valor * fatura.quantidade))}>Apagar Fatura</button>
+                  
+                  <button className="btn-fatura-apagar" onClick={() => dispatch({type: 'apagarFaturaCliente', payload: {idCliente, idFatura: fatura.id, valor: (fatura.valor * fatura.quantidade)}})}>Apagar Fatura</button>
               </div>
             )
           } 
