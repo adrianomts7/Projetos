@@ -2,14 +2,9 @@ import { useState, useEffect } from "react";
 import { HiOutlineX } from "react-icons/hi";
 
 export default function FormFatura({
-  setIsModal,
   dadosAcao,
-  onDadosAcaoForm,
-  onEditarFatura,
-  onDestaqueModal,
   dispatch
 }) {
-
   const [fatura, setFatura] = useState({
   id: crypto.randomUUID(),
   nome: "",
@@ -30,9 +25,12 @@ export default function FormFatura({
       faturaPaga: dadosAcao?.faturaPaga || false
     });
     
-    onDestaqueModal();
-   
-  },[dadosAcao, onDestaqueModal])
+     window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+
+  },[dadosAcao])
 
   function pegandoDadosInput(e) {
     const { name, value } = e.target;
@@ -50,7 +48,7 @@ export default function FormFatura({
     };
 
     function resetandoMensagemUser() {
-      setTimeout(() => (setMensagemUser(null), setIsModal(false)), 3000);
+      setTimeout(() => (setMensagemUser(null), dispatch({type: 'fecharModal'})), 3000);
     }
 
     if (
@@ -89,24 +87,16 @@ export default function FormFatura({
         mensagem: `Nova Fatura adicionada com sucesso a ${novaFatura.nome}`,
         tipo: "sucesso",
       });
-      onDadosAcaoForm(null);
       resetandoMensagemUser();
       return;
     }
 
     if (dadosAcao.acao === "editar") {
       dispatch({type: 'editarFatura', payload: {idCliente: dadosAcao.idCliente, idFatura:  dadosAcao.idFatura, faturaEditada: novaFatura, valorAntigo: dadosAcao.dadosFatura.valor * dadosAcao.dadosFatura.quantidade }})
-      onEditarFatura(
-        dadosAcao.idCliente,
-        dadosAcao.idFatura,
-        novaFatura,
-        dadosAcao.dadosFatura.valor * dadosAcao.dadosFatura.quantidade,
-      );
       setMensagemUser({
         mensagem: `Fatura Editada com sucesso do cliente ${novaFatura.nome}`, tipo: 'sucesso',
       });
       resetandoMensagemUser();
-      onDadosAcaoForm(null);
       return;
     }
   }
@@ -184,7 +174,7 @@ export default function FormFatura({
 
         <button
           className="fechar-form-fatura"
-          onClick={() => setIsModal(false)}
+          onClick={() => dispatch({type: 'fecharModal'})}
         >
           <HiOutlineX />
         </button>

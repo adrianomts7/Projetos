@@ -1,18 +1,18 @@
-export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIsModal, onDadosAcaoForm, dispatch, onConfirmacaoPagouFatura}) {
+export default function Fatura({fatura, idSelecionado,  dispatch}) {
   const quantidadeItensFatura = fatura.faturas.length;
   const nomeCliente = fatura.faturas[0].nome;
 
   function moodAdicionarNovaFatura(id, nome) {
-   onIsModal(true);
-   onDadosAcaoForm({ id: id, nome: nome, acao: 'adicionar' });
+   dispatch({type: 'mostrarModal'});
+   dispatch({type: "dadosAcaoForm", payload: { id, nome, acao: 'adicionar' }});
   }
 
   function moodEditarFatura(idCliente, idFatura, dadosFatura) {
-    onIsModal(true);
-    onDadosAcaoForm({idCliente ,idFatura, dadosFatura, acao: 'editar' })
+    dispatch({type: 'mostrarModal'});
+    dispatch({type: "dadosAcaoForm", payload: {idCliente ,idFatura, dadosFatura, acao: 'editar' }})
   }
 
-  return <li style={mostrarMaisInfo === fatura.id ? { border: '3px solid var(--verde)', padding: '2rem 0.8rem'} : {}} >
+  return <li style={idSelecionado === fatura.id ? { border: '3px solid var(--verde)', padding: '2rem 0.8rem'} : {}} >
     <div>
       <div className="area-faturas-dados">
         <p className="nome-cliente" style={{width: `${nomeCliente.length * 10}px` }}>{nomeCliente}</p>
@@ -25,12 +25,12 @@ export default function Fatura({fatura, onMostrarMaisInfo, mostrarMaisInfo, onIs
         <p>Valor Total: <span className="valor-total-fatura">R$ {fatura.valorTotal}</span></p>
       </div>
       
-      { mostrarMaisInfo === fatura.id && <DivDadosFatura fatura={fatura} onMoodEditarFatura={moodEditarFatura} dispatch={dispatch} quantidadeItensFatura={quantidadeItensFatura}  /> }
+      { idSelecionado === fatura.id && <DivDadosFatura fatura={fatura} onMoodEditarFatura={moodEditarFatura} dispatch={dispatch} quantidadeItensFatura={quantidadeItensFatura}  /> }
      
       <div className="area-butoes-fatura">
-        <button className="btn-mostrar-mais" onClick={() => onMostrarMaisInfo(fatura.id)}>{ mostrarMaisInfo ? "Ocultar Infos" : "Mostrar Infos" }</button>
+        <button className="btn-mostrar-mais" onClick={() => dispatch({type: 'mostrarDadosServicos', payload: fatura.id})}>{ idSelecionado === fatura.id  ? "Ocultar Infos" : "Mostrar Infos" }</button>
         
-        { !fatura.faturaPaga && <button className="btn-fatura-paga" onClick={() => onConfirmacaoPagouFatura(fatura.id, fatura)} >Pagar Fatura</button>}
+        { !fatura.faturaPaga && <button className="btn-fatura-paga" onClick={() => dispatch( {type: 'solicitarPagamento', payload: {idFatura: fatura.id, fatura}} )} >Pagar Fatura</button>}
 
 
         <button className="btn-adicionar-nova-fatura" onClick={() => moodAdicionarNovaFatura(fatura.id, nomeCliente)} >Adicionar Nova Fatura para {nomeCliente}</button>
