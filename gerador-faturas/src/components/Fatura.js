@@ -1,9 +1,7 @@
 export default function Fatura({fatura, idSelecionado,  dispatch}) {
   const quantidadeItensFatura = fatura.faturas.length;
   const nomeCliente = fatura.faturas[0].nome;
-
-  console.log(fatura);
-
+  
   function moodAdicionarNovaFatura(id, nome) {
    dispatch({type: 'mostrarModal'});
    dispatch({type: "dadosAcaoForm", payload: { id, nome, acao: 'adicionar' }});
