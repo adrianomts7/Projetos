@@ -2,6 +2,8 @@ export default function Fatura({fatura, idSelecionado,  dispatch}) {
   const quantidadeItensFatura = fatura.faturas.length;
   const nomeCliente = fatura.faturas[0].nome;
 
+  console.log(fatura);
+
   function moodAdicionarNovaFatura(id, nome) {
    dispatch({type: 'mostrarModal'});
    dispatch({type: "dadosAcaoForm", payload: { id, nome, acao: 'adicionar' }});
@@ -33,7 +35,7 @@ export default function Fatura({fatura, idSelecionado,  dispatch}) {
         { !fatura.faturaPaga && <button className="btn-fatura-paga" onClick={() => dispatch( {type: 'solicitarPagamento', payload: {idFatura: fatura.id, fatura}} )} >Pagar Fatura</button>}
 
 
-        <button className="btn-adicionar-nova-fatura" onClick={() => moodAdicionarNovaFatura(fatura.id, nomeCliente)} >Adicionar Nova Fatura para {nomeCliente}</button>
+      {!fatura.faturaPaga && <button className="btn-adicionar-nova-fatura" onClick={() => moodAdicionarNovaFatura(fatura.id, nomeCliente)} >Adicionar Nova Fatura para {nomeCliente}</button> } 
 
       </div>
     </div>
@@ -58,7 +60,7 @@ function DivDadosFatura({ fatura, onMoodEditarFatura, dispatch, quantidadeItensF
             <p>Valor Total: <span className="valor">R$ {fatura.valor * fatura.quantidade}</span></p>
           </div>
           {
-            quantidadeItensFatura > 1 && (
+            quantidadeItensFatura > 1 && fatura.faturaPaga && (
               <div className="botoes-fatura-acoes">
                   <button className="btn-fatura-editar" onClick={() => onMoodEditarFatura(idCliente, fatura.id, fatura)}>Editar Fatura</button>
                   
