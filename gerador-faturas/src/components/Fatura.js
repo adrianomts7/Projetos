@@ -32,10 +32,11 @@ export default function Fatura({fatura, idSelecionado,  dispatch}) {
       <div className="area-butoes-fatura">
         <button className="btn-mostrar-mais" onClick={() => dispatch({type: 'mostrarDadosServicos', payload: fatura.id})}>{ idSelecionado === fatura.id  ? "Ocultar Infos" : "Mostrar Infos" }</button>
         
-        { !fatura.faturaPaga && <button className="btn-fatura-paga" onClick={() => dispatch( {type: 'solicitarPagamento', payload: {idFatura: fatura.id, fatura}} )} >Pagar Fatura</button>}
-
-
-      {!fatura.faturaPaga && <button className="btn-adicionar-nova-fatura" onClick={() => moodAdicionarNovaFatura(fatura.id, nomeCliente)} >Adicionar Nova Fatura para {nomeCliente}</button> } 
+        { !fatura.faturaPaga && <>
+            <button className="btn-fatura-paga" onClick={() => dispatch( {type: 'solicitarPagamento', payload: {idFatura: fatura.id, fatura}} )} >Pagar Fatura</button>
+            <button className="btn-adicionar-nova-fatura" onClick={() => moodAdicionarNovaFatura(fatura.id, nomeCliente)} >Adicionar Nova Fatura para {nomeCliente}</button>
+          </> 
+        }
 
       </div>
     </div>
